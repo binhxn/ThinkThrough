@@ -15,7 +15,7 @@ class Home extends Component {
 
     return (
       <View>
-        <Text>{mainTitle}</Text>
+        <Text style={styles.title}>{mainTitle}</Text>
         <Button onPress={this.titleChange}>Change Title</Button>
       </View>
     );
@@ -23,12 +23,9 @@ class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-  button: {
-    minWidth: '200px',
-    padding: '5px',
-    backgroundColor: '#21ce99',
-    color: '#fff',
-    margin: '0 auto'
+  title: {
+    marginBottom: 20,
+    textAlign: 'center'
   }
 });
 
