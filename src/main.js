@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 
 import reducers from './reducers';
 
-import Home from './screens/Home';
+import HomeScreen from './screens/HomeScreen';
 
 /*
  * Store
@@ -18,7 +18,7 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <Home />
+          <HomeScreen />
         </View>
       </Provider>
     );
