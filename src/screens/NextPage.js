@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+import { Header } from '../components/Header';
+
 class NextPage extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text style={styles.textStyle}>Sup page two</Text>
       </View>
     );
   }
 }
 
-const styles = {
-  textStyle: {
+const styles = StyleSheet.create({
+  title: {
+    marginBottom: 20,
+    textAlign: 'center'
+  },
+  container: {
     flex: 1,
+    backgroundColor: '#fff',
     alignItems: 'center',
-    alignSelf: 'center',
-    fontSize: 16,
-    fontWeight: '600',
-    paddingTop: 10,
-    paddingBottom: 10
+    justifyContent: 'center'
   }
-};
+});
 
 export default NextPage;

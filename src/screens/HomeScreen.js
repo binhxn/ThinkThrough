@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Platform } from 'react-native';
 import { connect } from 'react-redux';
+import { StackNavigator } from 'react-navigation';
 
 import { logHello } from '../actions';
+import { Header } from '../components/Header';
 import { Button } from '../components/Button';
 import { STATUS_BAR_HEIGHT, MAIN_COLOR } from '../constants';
 
@@ -30,6 +32,9 @@ class Home extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>{mainTitle}</Text>
         <Button onPress={this.titleChange}>Change Title</Button>
+        <Button onPress={() => this.props.navigation.navigate('NextPage')}>
+          Go to next screen
+        </Button>
       </View>
     );
   }
