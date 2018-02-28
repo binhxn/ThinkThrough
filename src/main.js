@@ -3,9 +3,9 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { StackNavigator } from 'react-navigation';
 
 import reducers from './reducers';
+import { Router } from './Router';
 import HomeScreen from './screens/HomeScreen';
 import NextPage from './screens/NextPage';
 
@@ -16,14 +16,9 @@ const store = createStore(reducers, {}, applyMiddleware());
 
 class App extends React.Component {
   render() {
-    const MainNavigator = StackNavigator({
-      Home: { screen: HomeScreen },
-      NextPage: { screen: NextPage }
-    });
-
     return (
       <Provider store={store}>
-        <MainNavigator />
+        <Router />
       </Provider>
     );
   }
