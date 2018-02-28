@@ -1,12 +1,13 @@
 import Expo from 'expo';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { StackNavigator } from 'react-navigation';
 
 import reducers from './reducers';
-
 import HomeScreen from './screens/HomeScreen';
+import NextPage from './screens/NextPage';
 
 /*
  * Store
@@ -15,23 +16,17 @@ const store = createStore(reducers, {}, applyMiddleware());
 
 class App extends React.Component {
   render() {
+    const MainNavigator = StackNavigator({
+      Home: { screen: HomeScreen },
+      NextPage: { screen: NextPage }
+    });
+
     return (
       <Provider store={store}>
-        <View style={styles.container}>
-          <HomeScreen />
-        </View>
+        <MainNavigator />
       </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
 
 Expo.registerRootComponent(App);
