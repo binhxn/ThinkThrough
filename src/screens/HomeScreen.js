@@ -21,6 +21,7 @@ class Home extends Component {
     },
     headerLeft: <View />
   });
+
   titleChange = () => {
     this.props.logHello();
   };
