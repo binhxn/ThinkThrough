@@ -6,7 +6,7 @@ import { Header } from '../components/Header';
 
 class NextPage extends Component {
   static navigationOptions = () => ({
-    title: 'NextPage',
+    title: 'New Thought',
     headerStyle: {
       height: Platform.OS === 'android' ? 54 + STATUS_BAR_HEIGHT : 54,
       backgroundColor: '#2196F3'
@@ -15,8 +15,8 @@ class NextPage extends Component {
       marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
       color: '#FFF'
     },
-    headerTintColor: '#FFF' // Colors the 'back' button
-    // headerLeft: <View />
+    headerTintColor: '#FFF', // Colors the 'back' button
+    headerLeft: null // Removes back button
   });
 
   render() {

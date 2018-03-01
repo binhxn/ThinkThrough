@@ -5,9 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 
 import reducers from './reducers';
-import { Router } from './Router';
-import HomeScreen from './screens/HomeScreen';
-import NextPage from './screens/NextPage';
+import { Router, TabNavigation } from './Router';
 
 /*
  * Store
@@ -18,7 +16,8 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Router />
+        {/* <Router /> */}
+        <TabNavigation />
       </Provider>
     );
   }
