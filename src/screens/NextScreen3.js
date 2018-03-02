@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, Platform, StyleSheet } from 'react-native';
 
+import { HeaderStyles } from '../components/HeaderStyles';
+
 class NextScreen3 extends Component {
-  static navigationOptions = () => ({
-    title: 'New Thought',
-    headerStyle: {
-      height: Platform.OS === 'android' ? 54 + STATUS_BAR_HEIGHT : 54,
-      backgroundColor: '#2196F3'
-    },
-    headerTitleStyle: {
-      marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
-      color: '#FFF'
-    },
-    headerTintColor: '#FFF', // Colors the 'back' button
-    headerLeft: null // Removes back button
-  });
+  static navigationOptions = () => HeaderStyles('NextScreen3');
 
   render() {
     return (
