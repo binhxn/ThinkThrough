@@ -9,7 +9,8 @@ import { Button } from '../components/Button';
 import { STATUS_BAR_HEIGHT, MAIN_COLOR } from '../constants';
 
 class Home extends Component {
-  static navigationOptions = () => HeaderStyles('ThinkThrough', <View />);
+  static navigationOptions = () =>
+    HeaderStyles('ThinkThrough', 'Home', <View />);
 
   titleChange = () => {
     this.props.logHello();

@@ -4,7 +4,7 @@ import { View, Text, Platform, StyleSheet } from 'react-native';
 import { HeaderStyles } from '../components/HeaderStyles';
 
 class NextScreen3 extends Component {
-  static navigationOptions = () => HeaderStyles('NextScreen3');
+  static navigationOptions = () => HeaderStyles('NextScreen3', 'Home');
 
   render() {
     return (

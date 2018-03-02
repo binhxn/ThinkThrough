@@ -5,7 +5,7 @@ import { Button } from '../components/Button';
 import { HeaderStyles } from '../components/HeaderStyles';
 
 class NextScreen2 extends Component {
-  static navigationOptions = () => HeaderStyles('NextScreen2');
+  static navigationOptions = () => HeaderStyles('NextScreen2', 'Home');
 
   render() {
     return (
