@@ -3,7 +3,6 @@ import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import { View, Platform } from 'react-native';
 
 import HomeScreen from './screens/HomeScreen';
-import NextPage from './screens/NextPage';
 import AboutScreen from './screens/AboutScreen';
 import NextScreen2 from './screens/NextScreen2';
 import NextScreen3 from './screens/NextScreen3';
