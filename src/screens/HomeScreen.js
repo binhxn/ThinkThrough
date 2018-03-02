@@ -33,8 +33,8 @@ class Home extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>{mainTitle}</Text>
         <Button onPress={this.titleChange}>Change Title</Button>
-        <Button onPress={() => this.props.navigation.navigate('NextPage')}>
-          Go to next screen
+        <Button onPress={() => this.props.navigation.navigate('NextScreen2')}>
+          Go to NextScreen2
         </Button>
       </View>
     );
