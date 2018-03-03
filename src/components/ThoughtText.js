@@ -10,7 +10,8 @@ const styles = {
     color: '#FF9100',
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 10
+    marginBottom: 10,
+    textAlign: 'center'
   }
 };
 

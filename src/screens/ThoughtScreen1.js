@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  KeyboardAvoidingView
+} from 'react-native';
 import { connect } from 'react-redux';
 
 import { updateAnswer1 } from '../actions';
@@ -23,19 +29,21 @@ class ThoughtScreen1 extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <ThoughtText>How are you feeling today?</ThoughtText>
-        <ThoughtText>I want to...</ThoughtText>
-        <TextInput
-          style={styles.input}
-          placeholder="Change my career"
-          onChangeText={text => this.setState({ text })}
-          value={this.state.text}
-        />
-        <Button onPress={this.updateAnswer1AndNavigate}>
-          Go to ThoughtScreen2
-        </Button>
-      </View>
+      <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <View>
+          <ThoughtText>How are you feeling today?</ThoughtText>
+          <ThoughtText>I want to...</ThoughtText>
+          <TextInput
+            style={styles.input}
+            placeholder="Change my career"
+            onChangeText={text => this.setState({ text })}
+            value={this.state.text}
+          />
+          <Button onPress={this.updateAnswer1AndNavigate}>
+            Go to ThoughtScreen2
+          </Button>
+        </View>
+      </KeyboardAvoidingView>
     );
   }
 }

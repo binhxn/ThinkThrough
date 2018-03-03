@@ -10,22 +10,18 @@ import { Button } from '../components/Button';
 class Home extends Component {
   static navigationOptions = () => HeaderStyles('ThinkThrough', 'Home');
 
-  titleChange = () => {
-    this.props.logHello();
-  };
-
   render() {
-    const mainTitle = this.props.title || 'Should be a title here';
-
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>{mainTitle}</Text>
-        <Button onPress={this.titleChange}>Change Title</Button>
-        <Button
-          onPress={() => this.props.navigation.navigate('ThoughtScreen1')}
-        >
-          Go to New Thought
-        </Button>
+        <Text style={styles.title}>Insert logo here</Text>
+        <View style={styles.buttonContainer}>
+          <Button onPress={this.titleChange}>Change Title</Button>
+          <Button
+            onPress={() => this.props.navigation.navigate('ThoughtScreen1')}
+          >
+            Go to New Thought
+          </Button>
+        </View>
       </View>
     );
   }
@@ -33,20 +29,20 @@ class Home extends Component {
 
 const styles = StyleSheet.create({
   title: {
-    marginBottom: 20
+    marginBottom: 200,
+    fontSize: 24
+    // flexGrow: 1
   },
   container: {
     flex: 1,
+    flexDirection: 'column',
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  buttonContainer: {
+    marginBottom: 50
   }
 });
 
-const mapStateToProps = state => {
-  const { title } = state.thoughts;
-
-  return { title };
-};
-
-export default connect(mapStateToProps, { logHello })(Home);
+export default Home;
