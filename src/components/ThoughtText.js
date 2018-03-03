@@ -9,7 +9,8 @@ const styles = {
   text: {
     color: '#FF9100',
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginBottom: 10
   }
 };
 

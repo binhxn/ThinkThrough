@@ -21,7 +21,9 @@ class Home extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>{mainTitle}</Text>
         <Button onPress={this.titleChange}>Change Title</Button>
-        <Button onPress={() => this.props.navigation.navigate('NewThought')}>
+        <Button
+          onPress={() => this.props.navigation.navigate('ThoughtScreen1')}
+        >
           Go to New Thought
         </Button>
       </View>

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 
+import { updateAnswer1 } from '../actions';
 import { Button } from '../components/Button';
 import { HeaderStyles } from '../components/HeaderStyles';
 import { ThoughtText } from '../components/ThoughtText';
 
-class NewThoughtScreen extends Component {
+class ThoughtScreen1 extends Component {
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
 
   constructor(props) {
@@ -13,19 +15,25 @@ class NewThoughtScreen extends Component {
     this.state = { text: '' };
   }
 
+  updateAnswer1AndNavigate = () => {
+    this.props.updateAnswer1(this.state.text);
+
+    this.props.navigation.navigate('ThoughtScreen2');
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>How are you feeling today?</Text>
+        <ThoughtText>How are you feeling today?</ThoughtText>
         <ThoughtText>I want to...</ThoughtText>
         <TextInput
           style={styles.input}
-          placeholder="Enter goal"
+          placeholder="Change my career"
           onChangeText={text => this.setState({ text })}
           value={this.state.text}
         />
-        <Button onPress={() => this.props.navigation.navigate('NextScreen3')}>
-          Go to NextScreen3
+        <Button onPress={this.updateAnswer1AndNavigate}>
+          Go to ThoughtScreen2
         </Button>
       </View>
     );
@@ -52,4 +60,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default NewThoughtScreen;
+export default connect(null, { updateAnswer1 })(ThoughtScreen1);

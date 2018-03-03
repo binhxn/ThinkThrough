@@ -1,1 +1,5 @@
 export const LOG_HELLO = 'LOG_HELLO';
+export const UPDATE_ANSWER_1 = 'UPDATE_ANSWER_1';
+export const UPDATE_ANSWER_2 = 'UPDATE_ANSWER_2';
+export const UPDATE_ANSWER_3 = 'UPDATE_ANSWER_3';
+export const UPDATE_ANSWER_4 = 'UPDATE_ANSWER_4';
