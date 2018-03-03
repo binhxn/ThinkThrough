@@ -15,7 +15,6 @@ class Home extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Insert logo here</Text>
         <View style={styles.buttonContainer}>
-          <Button onPress={this.titleChange}>Change Title</Button>
           <Button
             onPress={() => this.props.navigation.navigate('ThoughtScreen1')}
           >

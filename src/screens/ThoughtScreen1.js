@@ -21,7 +21,7 @@ class ThoughtScreen1 extends Component {
     this.state = { text: '' };
   }
 
-  updateAnswer1AndNavigate = () => {
+  navigateAnswer1 = () => {
     this.props.updateAnswer1(this.state.text);
 
     this.props.navigation.navigate('ThoughtScreen2');
@@ -30,7 +30,7 @@ class ThoughtScreen1 extends Component {
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
-        <View>
+        <View style={styles.subcontainer}>
           <ThoughtText>How are you feeling today?</ThoughtText>
           <ThoughtText>I want to...</ThoughtText>
           <TextInput
@@ -39,9 +39,7 @@ class ThoughtScreen1 extends Component {
             onChangeText={text => this.setState({ text })}
             value={this.state.text}
           />
-          <Button onPress={this.updateAnswer1AndNavigate}>
-            Go to ThoughtScreen2
-          </Button>
+          <Button onPress={this.navigateAnswer1}>Go to ThoughtScreen2</Button>
         </View>
       </KeyboardAvoidingView>
     );
@@ -58,7 +56,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'gray',
     marginBottom: 20,
-    textAlign: 'center'
+    textAlign: 'center',
+    justifyContent: 'center'
+  },
+  subcontainer: {
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   container: {
     flex: 1,

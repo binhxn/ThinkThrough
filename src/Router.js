@@ -9,7 +9,7 @@ import ThoughtScreen1 from './screens/ThoughtScreen1';
 import ThoughtScreen2 from './screens/ThoughtScreen2';
 
 export const ThoughtStack = StackNavigator({
-  Home: { screen: HomeScreen },
+  // Home: { screen: HomeScreen },
   ThoughtScreen1: { screen: ThoughtScreen1 },
   ThoughtScreen2: { screen: ThoughtScreen2 }
 });
