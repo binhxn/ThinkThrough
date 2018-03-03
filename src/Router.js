@@ -1,15 +1,16 @@
 import React from 'react';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import { View, Platform } from 'react-native';
+import { MAIN_COLOR } from './constants';
 
 import HomeScreen from './screens/HomeScreen';
 import AboutScreen from './screens/AboutScreen';
-import NextScreen2 from './screens/NextScreen2';
+import NewThoughtScreen from './screens/NewThoughtScreen';
 import NextScreen3 from './screens/NextScreen3';
 
 export const ThoughtStack = StackNavigator({
   Home: { screen: HomeScreen },
-  NextScreen2: { screen: NextScreen2 },
+  NewThought: { screen: NewThoughtScreen },
   NextScreen3: { screen: NextScreen3 }
 });
 
@@ -22,8 +23,12 @@ export const TabNavigation = TabNavigator(
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
     tabBarOptions: {
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray'
+      activeTintColor: MAIN_COLOR,
+      inactiveTintColor: 'gray',
+      labelStyle: {
+        fontSize: 16,
+        alignSelf: 'center'
+      }
     },
     animationEnabled: false,
     swipeEnabled: false

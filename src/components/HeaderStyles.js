@@ -1,5 +1,10 @@
 import { Platform } from 'react-native';
 
+/*
+ * @param {string} title - Header title
+ * @param {string} tabBarLabel - Bottom navbar title
+ * @param {Component} headerLeft - Component for backbutton
+ */
 export const HeaderStyles = (title, tabBarLabel, headerLeft = null) => ({
   title,
   tabBarLabel,

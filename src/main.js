@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 
 import reducers from './reducers';
-import { Router, TabNavigation } from './Router';
+import { TabNavigation } from './Router';
 
 /*
  * Store
@@ -16,7 +16,6 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        {/* <Router /> */}
         <TabNavigation />
       </Provider>
     );

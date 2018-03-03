@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Platform } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 import { logHello } from '../actions';
 import { HeaderStyles } from '../components/HeaderStyles';
 import { Button } from '../components/Button';
-import { STATUS_BAR_HEIGHT, MAIN_COLOR } from '../constants';
 
 class Home extends Component {
   static navigationOptions = () =>
@@ -23,8 +22,8 @@ class Home extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>{mainTitle}</Text>
         <Button onPress={this.titleChange}>Change Title</Button>
-        <Button onPress={() => this.props.navigation.navigate('NextScreen2')}>
-          Go to NextScreen2
+        <Button onPress={() => this.props.navigation.navigate('NewThought')}>
+          Go to New Thought
         </Button>
       </View>
     );
@@ -33,8 +32,7 @@ class Home extends Component {
 
 const styles = StyleSheet.create({
   title: {
-    marginBottom: 20,
-    textAlign: 'center'
+    marginBottom: 20
   },
   container: {
     flex: 1,
