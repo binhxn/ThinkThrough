@@ -16,6 +16,6 @@ export const HeaderStyles = (title, tabBarLabel, headerLeft = null) => ({
     marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
     color: '#FFF'
   },
-  headerTintColor: '#FFF', // Colors the 'back' button
-  headerLeft // Removes back button
+  headerTintColor: '#FFF' // Colors the 'back' button
+  // headerLeft // Removes back button
 });

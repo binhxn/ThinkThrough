@@ -3,6 +3,7 @@ import { View, Text, TextInput, StyleSheet } from 'react-native';
 
 import { Button } from '../components/Button';
 import { HeaderStyles } from '../components/HeaderStyles';
+import { ThoughtText } from '../components/ThoughtText';
 
 class NewThoughtScreen extends Component {
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
@@ -16,6 +17,7 @@ class NewThoughtScreen extends Component {
     return (
       <View style={styles.container}>
         <Text>How are you feeling today?</Text>
+        <ThoughtText>I want to...</ThoughtText>
         <TextInput
           style={styles.input}
           placeholder="Enter goal"

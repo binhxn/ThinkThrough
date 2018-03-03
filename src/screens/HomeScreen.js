@@ -8,8 +8,7 @@ import { HeaderStyles } from '../components/HeaderStyles';
 import { Button } from '../components/Button';
 
 class Home extends Component {
-  static navigationOptions = () =>
-    HeaderStyles('ThinkThrough', 'Home', <View />);
+  static navigationOptions = () => HeaderStyles('ThinkThrough', 'Home');
 
   titleChange = () => {
     this.props.logHello();
