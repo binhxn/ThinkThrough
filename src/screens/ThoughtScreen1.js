@@ -9,10 +9,12 @@ import {
 import { connect } from 'react-redux';
 
 import { updateAnswer1 } from '../actions';
-import { Button } from '../components/Button';
-import { HeaderStyles } from '../components/HeaderStyles';
-import { ThoughtText } from '../components/ThoughtText';
-import { ThoughtResponse } from '../components/ThoughtResponse';
+import {
+  Button,
+  HeaderStyles,
+  ThoughtResponse,
+  ThoughtText
+} from '../components';
 
 class ThoughtScreen1 extends Component {
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
@@ -40,7 +42,7 @@ class ThoughtScreen1 extends Component {
             onChangeText={text => this.setState({ text })}
             value={this.state.text}
           />
-          <Button onPress={this.navigateAnswer1}>Go to ThoughtScreen2</Button>
+          <Button onPress={this.navigateAnswer1}>Continue</Button>
         </View>
       </KeyboardAvoidingView>
     );

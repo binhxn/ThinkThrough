@@ -17,7 +17,10 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case UPDATE_ANSWER_1:
-      return { ...state, answer1: action.answer1 };
+      return {
+        ...state,
+        answer1: action.answer1
+      };
 
     case UPDATE_ANSWER_2:
       return { ...state, answer1: action.answer2 };
