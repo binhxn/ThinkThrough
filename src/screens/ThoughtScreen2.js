@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { Button } from '../components/Button';
 import { HeaderStyles } from '../components/HeaderStyles';
 import { ThoughtText } from '../components/ThoughtText';
+import { ThoughtResponse } from '../components/ThoughtResponse';
 
 class ThoughtScreen2 extends Component {
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
@@ -13,8 +14,10 @@ class ThoughtScreen2 extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.textStyle}>ThoughtScreen2</Text>
-        <Text>{this.props.answer1}</Text>
+        <ThoughtText>
+          Why do you want to{' '}
+          <ThoughtResponse>{this.props.answer1}</ThoughtResponse>?
+        </ThoughtText>
       </View>
     );
   }

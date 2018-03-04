@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet } from 'react-native';
-import { THOUGHT_TEXT_COLOR } from '../constants';
+import { Text } from 'react-native';
 
-const ThoughtText = ({ children }) => {
+import { MAIN_COLOR } from '../constants';
+
+const ThoughtResponse = ({ children }) => {
   return <Text style={styles.text}>{children}</Text>;
 };
 
 const styles = {
   text: {
-    color: THOUGHT_TEXT_COLOR,
+    color: MAIN_COLOR,
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
@@ -16,4 +17,4 @@ const styles = {
   }
 };
 
-export { ThoughtText };
+export { ThoughtResponse };

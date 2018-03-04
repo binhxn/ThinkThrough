@@ -12,6 +12,7 @@ import { updateAnswer1 } from '../actions';
 import { Button } from '../components/Button';
 import { HeaderStyles } from '../components/HeaderStyles';
 import { ThoughtText } from '../components/ThoughtText';
+import { ThoughtResponse } from '../components/ThoughtResponse';
 
 class ThoughtScreen1 extends Component {
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
@@ -32,7 +33,7 @@ class ThoughtScreen1 extends Component {
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <View style={styles.subcontainer}>
           <ThoughtText>How are you feeling today?</ThoughtText>
-          <ThoughtText>I want to...</ThoughtText>
+          <ThoughtResponse>I want to...</ThoughtResponse>
           <TextInput
             style={styles.input}
             placeholder="Change my career"
