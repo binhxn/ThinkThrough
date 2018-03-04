@@ -5,6 +5,7 @@ import { MAIN_COLOR } from './constants';
 
 import HomeScreen from './screens/HomeScreen';
 import AboutScreen from './screens/AboutScreen';
+import AllThoughtsScreen from './screens/AllThoughtsScreen';
 import ThoughtScreen1 from './screens/ThoughtScreen1';
 import ThoughtScreen2 from './screens/ThoughtScreen2';
 
@@ -17,6 +18,7 @@ export const ThoughtStack = StackNavigator({
 export const TabNavigation = TabNavigator(
   {
     Home: { screen: ThoughtStack },
+    Thoughts: { screen: AllThoughtsScreen },
     About: { screen: AboutScreen }
   },
   {

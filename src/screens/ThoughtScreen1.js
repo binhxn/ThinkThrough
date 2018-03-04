@@ -32,7 +32,7 @@ class ThoughtScreen1 extends Component {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <View style={styles.subcontainer}>
-          <ThoughtText>How are you feeling today?</ThoughtText>
+          <ThoughtText>What's been on your mind?</ThoughtText>
           <ThoughtResponse>I want to...</ThoughtResponse>
           <TextInput
             style={styles.input}
