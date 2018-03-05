@@ -27,24 +27,21 @@ class ThoughtScreen2 extends Component {
       my: 'your',
       me: 'you',
       myself: 'yourself',
-      // i: 'you',
-      ill: 'you',
-      im: 'you are'
+      i: 'you',
+      "i'll": 'you',
+      "i'm": 'you are'
     };
 
-    return thought.replace(/my|me|ill|im/gi, function(matched) {
-      return perspectiveObj[matched];
+    let newThoughts = lcThought.map(lc => {
+      console.log(perspectiveObj[lc]); // <----- THIS IS WHAT WE WANT, each word to match our object!
+      // if (lc === perspectiveObj[lc]) {
+      //   console.log('yes')
+      // }
     });
 
-    // lcThought.split(' ').forEach(thought => {
-    //   thought.replace('i', 'you');
-    //   thought.replace('me', 'you');
-    //   thought.replace('my', 'your');
-    //   thought.replace("i'll", 'you');
-    //   thought.replace("i'm", "you're");
+    // return thought.replace(/([\w]+['][\w]+)/, function(matched) {
+    //   return perspectiveObj[matched];
     // });
-
-    // return lcThought;
   };
 
   navigateAnswer2 = () => {
