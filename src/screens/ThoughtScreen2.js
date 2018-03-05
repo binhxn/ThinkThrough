@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Picker, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 
-import { updateAnswer2 } from '../actions';
+import { updateAnswer2, updateEmotion } from '../actions';
 import {
   Button,
   HeaderStyles,
@@ -16,11 +16,12 @@ class ThoughtScreen2 extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { emotion: '', text: '' };
+    this.state = { emotion: 'Want', text: '' };
   }
 
   navigateAnswer2 = () => {
     this.props.updateAnswer2(this.state.text);
+    this.props.updateEmotion(this.state.emotion);
 
     this.props.navigation.navigate('ThoughtScreen3');
   };
@@ -105,4 +106,6 @@ const mapStateToProps = state => {
   return { answer1 };
 };
 
-export default connect(mapStateToProps, { updateAnswer2 })(ThoughtScreen2);
+export default connect(mapStateToProps, { updateAnswer2, updateEmotion })(
+  ThoughtScreen2
+);

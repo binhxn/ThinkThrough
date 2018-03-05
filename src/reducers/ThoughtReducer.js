@@ -2,7 +2,8 @@ import {
   UPDATE_ANSWER_1,
   UPDATE_ANSWER_2,
   UPDATE_ANSWER_3,
-  UPDATE_ANSWER_4
+  UPDATE_ANSWER_4,
+  UPDATE_EMOTION
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -20,13 +21,16 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, answer1: action.answer1 };
 
     case UPDATE_ANSWER_2:
-      return { ...state, answer1: action.answer2 };
+      return { ...state, answer2: action.answer2 };
 
     case UPDATE_ANSWER_3:
-      return { ...state, answer1: action.answer3 };
+      return { ...state, answer3: action.answer3 };
 
     case UPDATE_ANSWER_4:
-      return { ...state, answer1: action.answer4 };
+      return { ...state, answer4: action.answer4 };
+
+    case UPDATE_EMOTION:
+      return { ...state, emotion: action.emotion };
 
     default:
       return state;

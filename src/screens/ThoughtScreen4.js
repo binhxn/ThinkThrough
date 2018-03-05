@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 class ThoughtScreen4 extends Component {
   render() {
-    return <View>ThoughtScreen4</View>;
+    return <Text>ThoughtScreen4</Text>;
   }
 }
 
