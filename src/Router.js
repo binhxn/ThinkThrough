@@ -8,11 +8,13 @@ import AboutScreen from './screens/AboutScreen';
 import AllThoughtsScreen from './screens/AllThoughtsScreen';
 import ThoughtScreen1 from './screens/ThoughtScreen1';
 import ThoughtScreen2 from './screens/ThoughtScreen2';
+import ThoughtScreen3 from './screens/ThoughtScreen3';
 
 export const ThoughtStack = StackNavigator({
   // Home: { screen: HomeScreen },
   ThoughtScreen1: { screen: ThoughtScreen1 },
-  ThoughtScreen2: { screen: ThoughtScreen2 }
+  ThoughtScreen2: { screen: ThoughtScreen2 },
+  ThoughtScreen3: { screen: ThoughtScreen3 }
 });
 
 export const TabNavigation = TabNavigator(

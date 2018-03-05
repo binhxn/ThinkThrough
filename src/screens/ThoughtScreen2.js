@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Picker, ActionSheetIOS } from 'react-native';
+import { View, StyleSheet, Picker, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 
-// import { updateAnswer1 } from '../actions';
+import { updateAnswer2 } from '../actions';
 import {
   Button,
   HeaderStyles,
@@ -10,30 +10,19 @@ import {
   ThoughtResponse
 } from '../components';
 
-const BUTTONS = ['Option 0', 'Option 1', 'Option 2', 'Destruct', 'Cancel'];
-const DESTRUCTIVE_INDEX = 3;
-const CANCEL_INDEX = 4;
-
 class ThoughtScreen2 extends Component {
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
 
   constructor(props) {
     super(props);
 
-    this.state = { emotion: '', clicked: 'none' };
+    this.state = { emotion: '', text: '' };
   }
 
-  showActionSheet = () => {
-    ActionSheetIOS.showActionSheetWithOptions(
-      {
-        options: BUTTONS,
-        cancelButtonIndex: CANCEL_INDEX,
-        destructiveButtonIndex: DESTRUCTIVE_INDEX
-      },
-      buttonIndex => {
-        this.setState({ clicked: BUTTONS[buttonIndex] });
-      }
-    );
+  navigateAnswer2 = () => {
+    this.props.updateAnswer2(this.state.text);
+
+    this.props.navigation.navigate('ThoughtScreen3');
   };
 
   render() {
@@ -44,9 +33,7 @@ class ThoughtScreen2 extends Component {
           <ThoughtResponse>{this.props.answer1.toLowerCase()}</ThoughtResponse>?
         </ThoughtText>
         <View style={styles.responsePicker}>
-          <ThoughtResponse onPress={this.showActionSheet}>
-            Because I{' '}
-          </ThoughtResponse>
+          <ThoughtResponse>Because I </ThoughtResponse>
           <Picker
             style={styles.picker}
             selectedValue={this.state.emotion}
@@ -58,7 +45,22 @@ class ThoughtScreen2 extends Component {
             <Picker.Item label="Need" value="Need" />
             <Picker.Item label="Feel" value="Feel" />
           </Picker>
-          <ThoughtResponse> it</ThoughtResponse>
+          {this.state.emotion !== 'Feel' && (
+            <ThoughtResponse> to</ThoughtResponse>
+          )}
+        </View>
+        <View>
+          <TextInput
+            style={styles.input}
+            placeholder={
+              this.state.emotion === 'Feel'
+                ? 'Complacent at work'
+                : 'Change my career'
+            }
+            onChangeText={text => this.setState({ text })}
+            value={this.state.text}
+          />
+          <Button onPress={this.navigateAnswer2}>Continue</Button>
         </View>
       </View>
     );
@@ -79,11 +81,21 @@ const styles = StyleSheet.create({
   picker: {
     height: 100,
     width: 100,
+    marginBottom: 100,
     marginTop: -97 // Forced value, fix later
   },
   responsePicker: {
     flexDirection: 'row',
     marginTop: 60
+  },
+  input: {
+    height: 40,
+    width: 200,
+    borderBottomWidth: 1,
+    borderBottomColor: 'gray',
+    marginBottom: 20,
+    textAlign: 'center',
+    justifyContent: 'center'
   }
 });
 
@@ -93,4 +105,4 @@ const mapStateToProps = state => {
   return { answer1 };
 };
 
-export default connect(mapStateToProps)(ThoughtScreen2);
+export default connect(mapStateToProps, { updateAnswer2 })(ThoughtScreen2);
