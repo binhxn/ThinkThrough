@@ -41,7 +41,7 @@ class ThoughtScreen3 extends Component {
           onChangeText={text => this.setState({ text })}
           value={this.state.text}
         />
-        <Button onPress={this.navigateAnswer3}>Continue</Button>
+        <Button onPress={this.navigateAnswer3}>Find your cause</Button>
       </View>
     );
   }

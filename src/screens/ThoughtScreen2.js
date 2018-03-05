@@ -19,6 +19,34 @@ class ThoughtScreen2 extends Component {
     this.state = { emotion: 'Want', text: '' };
   }
 
+  // broken regex, need to fix
+  replacePerspective = thought => {
+    let splitThoughts = thought.toLowerCase();
+
+    const perspectiveObj = {
+      my: 'your',
+      me: 'you',
+      myself: 'yourself',
+      // i: 'you',
+      ill: 'you',
+      im: 'you are'
+    };
+
+    return thought.replace(/my|me|ill|im/gi, function(matched) {
+      return perspectiveObj[matched];
+    });
+
+    // lcThought.split(' ').forEach(thought => {
+    //   thought.replace('i', 'you');
+    //   thought.replace('me', 'you');
+    //   thought.replace('my', 'your');
+    //   thought.replace("i'll", 'you');
+    //   thought.replace("i'm", "you're");
+    // });
+
+    // return lcThought;
+  };
+
   navigateAnswer2 = () => {
     this.props.updateAnswer2(this.state.text);
     this.props.updateEmotion(this.state.emotion);
@@ -31,7 +59,9 @@ class ThoughtScreen2 extends Component {
       <View style={styles.container}>
         <ThoughtText>
           Why do you want to{' '}
-          <ThoughtResponse>{this.props.answer1.toLowerCase()}</ThoughtResponse>?
+          <ThoughtResponse>
+            {this.replacePerspective(this.props.answer1)}
+          </ThoughtResponse>?
         </ThoughtText>
         <View style={styles.responsePicker}>
           <ThoughtResponse>Because I </ThoughtResponse>
@@ -56,7 +86,7 @@ class ThoughtScreen2 extends Component {
             placeholder={
               this.state.emotion === 'Feel'
                 ? 'Complacent at work'
-                : 'Change my career'
+                : 'Make a difference at work'
             }
             onChangeText={text => this.setState({ text })}
             value={this.state.text}
