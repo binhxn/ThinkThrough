@@ -83,6 +83,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   picker: {
+    // Can't remove native Picker styles
+    // borderBottomColor: 'transparent',
+    // borderTopColor: 'transparent',
+    // borderBottomWidth: 0,
+    // borderTopWidth: 0,
     height: 100,
     width: 100,
     marginBottom: 100,
@@ -97,7 +102,7 @@ const styles = StyleSheet.create({
     width: 200,
     borderBottomWidth: 1,
     borderBottomColor: 'gray',
-    marginBottom: 20,
+    marginBottom: 30,
     textAlign: 'center',
     justifyContent: 'center'
   }

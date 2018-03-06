@@ -21,7 +21,6 @@ class ThoughtScreen3 extends Component {
 
   navigateAnswer3 = () => {
     this.props.updateAnswer3(this.state.text);
-
     this.props.navigation.navigate('ThoughtScreen4');
   };
 
@@ -65,10 +64,10 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    width: 250,
+    width: 200,
     borderBottomWidth: 1,
     borderBottomColor: 'gray',
-    marginBottom: 20,
+    marginBottom: 30,
     textAlign: 'center',
     justifyContent: 'center'
   }

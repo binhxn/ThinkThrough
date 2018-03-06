@@ -29,25 +29,27 @@ class ThoughtScreen4 extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ThoughtText>I want to </ThoughtText>
-        <ThoughtResponse>{this.props.answer1.toLowerCase()}</ThoughtResponse>
-        <ThoughtText>because I </ThoughtText>
-        <ThoughtResponse>{this.props.emotion.toLowerCase()}</ThoughtResponse>
-        <ThoughtText>
-          {this.props.emotion !== 'Feel' ? ' to ' : ' '}
-        </ThoughtText>
-        <ThoughtResponse>{this.props.answer2.toLowerCase()}</ThoughtResponse>
-        <ThoughtText>. I </ThoughtText>
-        <ThoughtResponse>
-          {this.props.emotion !== 'Feel'
-            ? this.props.emotion.toLowerCase()
-            : this.props.emotion.toLowerCase()}{' '}
-        </ThoughtResponse>
-        {this.props.emotion !== 'Feel' && <ThoughtText>to</ThoughtText>}
-        <ThoughtResponse>{this.props.answer2.toLowerCase()}</ThoughtResponse>
-        <ThoughtText>because </ThoughtText>
-        <ThoughtResponse>{this.props.answer3.toLowerCase()}</ThoughtResponse>
-        <ThoughtText>.</ThoughtText>
+        <View style={styles.subContainer}>
+          <ThoughtText>I want to </ThoughtText>
+          <ThoughtResponse>{this.props.answer1.toLowerCase()}</ThoughtResponse>
+          <ThoughtText>because I </ThoughtText>
+          <ThoughtResponse>{this.props.emotion.toLowerCase()}</ThoughtResponse>
+          <ThoughtText>
+            {this.props.emotion !== 'Feel' ? ' to ' : ' '}
+          </ThoughtText>
+          <ThoughtResponse>{this.props.answer2.toLowerCase()}</ThoughtResponse>
+          <ThoughtText>. I </ThoughtText>
+          <ThoughtResponse>
+            {this.props.emotion !== 'Feel'
+              ? this.props.emotion.toLowerCase()
+              : this.props.emotion.toLowerCase()}{' '}
+          </ThoughtResponse>
+          {this.props.emotion !== 'Feel' && <ThoughtText>to</ThoughtText>}
+          <ThoughtResponse>{this.props.answer2.toLowerCase()}</ThoughtResponse>
+          <ThoughtText>because </ThoughtText>
+          <ThoughtResponse>{this.props.answer3.toLowerCase()}</ThoughtResponse>
+          <ThoughtText>.</ThoughtText>
+        </View>
         <Button onPress={() => this.resetNavigation('Home')}>
           Return Home
         </Button>
@@ -63,11 +65,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    paddingTop: 200, // TEMPORARY PADDING
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  subContainer: {
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    marginBottom: 50
   }
 });
 
