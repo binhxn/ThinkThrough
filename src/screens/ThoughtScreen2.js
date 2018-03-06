@@ -16,7 +16,6 @@ class ThoughtScreen2 extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = { emotion: 'Want', text: '' };
   }
 
@@ -30,6 +29,7 @@ class ThoughtScreen2 extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <ThoughtText>{this.props.answer1}</ThoughtText>
         <ThoughtText>
           Why do you want to{' '}
           <ThoughtResponse>

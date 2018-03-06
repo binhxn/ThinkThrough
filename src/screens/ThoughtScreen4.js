@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import { NavigationActions } from 'react-navigation';
 
 import {
   Button,
@@ -10,12 +11,19 @@ import {
 } from '../components';
 
 class ThoughtScreen4 extends Component {
-  // replaceYouWithI = (str) => {
-  //   // Regex to loop through all text and replace
-  //   // 'You' with 'I'
-  //   str.replace(/\bde\b/g, '');
-  // }
+  static navigationOptions = () => HeaderStyles('Final Thoughts', 'Home', null);
+
+  // TODO
   getAllWordsIntoString = () => {};
+
+  // Disables back button on stackNavigation
+  resetNavigation = targetRoute => {
+    const resetAction = NavigationActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: targetRoute })]
+    });
+    this.props.navigation.dispatch(resetAction);
+  };
 
   // Need to find a way to simplify all these components
   render() {
@@ -40,6 +48,12 @@ class ThoughtScreen4 extends Component {
         <ThoughtText>because </ThoughtText>
         <ThoughtResponse>{this.props.answer3.toLowerCase()}</ThoughtResponse>
         <ThoughtText>.</ThoughtText>
+        <Button onPress={() => this.resetNavigation('Home')}>
+          Return Home
+        </Button>
+        <Button onPress={() => this.props.navigation.navigate('Thoughts')}>
+          View All Thoughts
+        </Button>
       </View>
     );
   }

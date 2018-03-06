@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+import { HeaderStyles, Header } from '../components';
+
 class AllThoughtsScreen extends Component {
+  static navigationOptions = () =>
+    HeaderStyles('All Thoughts', 'Thoughts', null);
+
   render() {
     return (
       <View style={styles.container}>

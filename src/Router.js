@@ -11,7 +11,7 @@ import ThoughtScreen2 from './screens/ThoughtScreen2';
 import ThoughtScreen3 from './screens/ThoughtScreen3';
 import ThoughtScreen4 from './screens/ThoughtScreen4';
 
-export const ThoughtStack = StackNavigator({
+const ThoughtStack = StackNavigator({
   Home: { screen: HomeScreen },
   ThoughtScreen1: { screen: ThoughtScreen1 },
   ThoughtScreen2: { screen: ThoughtScreen2 },
@@ -19,11 +19,19 @@ export const ThoughtStack = StackNavigator({
   ThoughtScreen4: { screen: ThoughtScreen4 }
 });
 
-export const TabNavigation = TabNavigator(
+const AllThoughtsStack = StackNavigator({
+  Thoughts: { screen: AllThoughtsScreen }
+});
+
+const AboutStack = StackNavigator({
+  About: { screen: AboutScreen }
+});
+
+export const Router = TabNavigator(
   {
     Home: { screen: ThoughtStack },
-    Thoughts: { screen: AllThoughtsScreen },
-    About: { screen: AboutScreen }
+    Thoughts: { screen: AllThoughtsStack },
+    About: { screen: AboutStack }
   },
   {
     tabBarComponent: TabBarBottom,

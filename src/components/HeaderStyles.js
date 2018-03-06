@@ -6,7 +6,7 @@ import { STATUS_BAR_HEIGHT } from '../helpers/constants';
  * @param {string} tabBarLabel - Bottom navbar title
  * @param {Component} headerLeft - Component for backbutton
  */
-export const HeaderStyles = (title, tabBarLabel, headerLeft = null) => ({
+export const HeaderStyles = (title, tabBarLabel, headerLeft) => ({
   title,
   tabBarLabel,
   headerStyle: {
@@ -17,6 +17,6 @@ export const HeaderStyles = (title, tabBarLabel, headerLeft = null) => ({
     marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
     color: '#FFF'
   },
-  headerTintColor: '#FFF' // Colors the 'back' button
-  // headerLeft // Removes back button
+  headerTintColor: '#FFF', // Colors the 'back' button
+  headerLeft // Removes back button
 });

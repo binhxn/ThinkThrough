@@ -9,6 +9,7 @@ import {
   ThoughtText,
   ThoughtResponse
 } from '../components';
+import { replacePerspective } from '../helpers';
 
 class ThoughtScreen3 extends Component {
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
@@ -31,8 +32,12 @@ class ThoughtScreen3 extends Component {
           Why do you{' '}
           <ThoughtResponse>
             {this.props.emotion !== 'Feel'
-              ? `${this.props.emotion.toLowerCase()} to ${this.props.answer2.toLowerCase()}?`
-              : `${this.props.emotion.toLowerCase()} ${this.props.answer2.toLowerCase()}?`}
+              ? `${this.props.emotion.toLowerCase()} to ${replacePerspective(
+                  this.props.answer2.toLowerCase()
+                )}?`
+              : `${this.props.emotion.toLowerCase()} ${replacePerspective(
+                  this.props.answer2.toLowerCase()
+                )}?`}
           </ThoughtResponse>
         </ThoughtText>
         <TextInput
