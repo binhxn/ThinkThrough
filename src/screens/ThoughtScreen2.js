@@ -19,29 +19,28 @@ class ThoughtScreen2 extends Component {
     this.state = { emotion: 'Want', text: '' };
   }
 
-  // broken regex, need to fix
-  replacePerspective = thought => {
-    let splitThoughts = thought.toLowerCase();
-
+  replacePerspective = currentThought => {
+    let thought = currentThought.toLowerCase().split(' ');
     const perspectiveObj = {
       my: 'your',
       me: 'you',
-      myself: 'yourself',
+      myself: 'yourself', // Prettier defaults to single quotes :(
       i: 'you',
-      "i'll": 'you',
+      "i'll": "you'll",
       "i'm": 'you are'
     };
 
-    let newThoughts = lcThought.map(lc => {
-      console.log(perspectiveObj[lc]); // <----- THIS IS WHAT WE WANT, each word to match our object!
-      // if (lc === perspectiveObj[lc]) {
-      //   console.log('yes')
-      // }
-    });
-
-    // return thought.replace(/([\w]+['][\w]+)/, function(matched) {
-    //   return perspectiveObj[matched];
-    // });
+    // loop through words and replace first-person view
+    // with second-person view
+    return thought
+      .map(word => {
+        if (perspectiveObj.hasOwnProperty(word)) {
+          return perspectiveObj[word];
+        } else {
+          return word;
+        }
+      })
+      .join(' ');
   };
 
   navigateAnswer2 = () => {
