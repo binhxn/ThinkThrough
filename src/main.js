@@ -7,9 +7,6 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import { TabNavigation } from './Router';
 
-/*
- * Store
- */
 const store = createStore(reducers, {}, applyMiddleware());
 
 class App extends React.Component {

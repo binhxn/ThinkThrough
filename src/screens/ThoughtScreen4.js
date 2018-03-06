@@ -15,7 +15,9 @@ class ThoughtScreen4 extends Component {
   //   // 'You' with 'I'
   //   str.replace(/\bde\b/g, '');
   // }
+  getAllWordsIntoString = () => {};
 
+  // Need to find a way to simplify all these components
   render() {
     return (
       <View style={styles.container}>
@@ -24,11 +26,16 @@ class ThoughtScreen4 extends Component {
         <ThoughtText>because I </ThoughtText>
         <ThoughtResponse>{this.props.emotion.toLowerCase()}</ThoughtResponse>
         <ThoughtText>
-          {this.props.emotion !== 'Feel' ? ' to ' : ' that I want to '}
+          {this.props.emotion !== 'Feel' ? ' to ' : ' '}
         </ThoughtText>
         <ThoughtResponse>{this.props.answer2.toLowerCase()}</ThoughtResponse>
-        <ThoughtText>.</ThoughtText>
-        <ThoughtText>I want to </ThoughtText>
+        <ThoughtText>. I </ThoughtText>
+        <ThoughtResponse>
+          {this.props.emotion !== 'Feel'
+            ? this.props.emotion.toLowerCase()
+            : this.props.emotion.toLowerCase()}{' '}
+        </ThoughtResponse>
+        {this.props.emotion !== 'Feel' && <ThoughtText>to</ThoughtText>}
         <ThoughtResponse>{this.props.answer2.toLowerCase()}</ThoughtResponse>
         <ThoughtText>because </ThoughtText>
         <ThoughtResponse>{this.props.answer3.toLowerCase()}</ThoughtResponse>
@@ -42,8 +49,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    paddingTop: 200, // TEMPORARY PADDING
     flexDirection: 'row',
     flexWrap: 'wrap'
   }
