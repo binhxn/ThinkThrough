@@ -1,7 +1,7 @@
 import React from 'react';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import { View, Platform } from 'react-native';
-import { MAIN_COLOR } from './constants';
+import { MAIN_COLOR } from './helpers/constants';
 
 import HomeScreen from './screens/HomeScreen';
 import AboutScreen from './screens/AboutScreen';

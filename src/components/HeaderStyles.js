@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import { STATUS_BAR_HEIGHT } from '../constants';
+import { STATUS_BAR_HEIGHT } from '../helpers/constants';
 
 /*
  * @param {string} title - Header title

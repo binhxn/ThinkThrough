@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Platform, StyleSheet } from 'react-native';
-import { STATUS_BAR_HEIGHT } from '../constants';
+import { STATUS_BAR_HEIGHT } from '../helpers/constants';
 
 class AboutScreen extends Component {
   static navigationOptions = () => ({

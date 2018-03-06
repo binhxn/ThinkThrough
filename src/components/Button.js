@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-import { MAIN_COLOR } from '../constants';
+import { MAIN_COLOR } from '../helpers/constants';
 
 const Button = ({ onPress, children }) => {
   const { buttonStyle, textStyle } = styles;

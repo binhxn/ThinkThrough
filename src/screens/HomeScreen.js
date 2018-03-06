@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 import { logHello } from '../actions';
 import { HeaderStyles } from '../components/HeaderStyles';

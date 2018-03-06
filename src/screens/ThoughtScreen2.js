@@ -9,6 +9,7 @@ import {
   ThoughtText,
   ThoughtResponse
 } from '../components';
+import { replacePerspective } from '../helpers';
 
 class ThoughtScreen2 extends Component {
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
@@ -18,30 +19,6 @@ class ThoughtScreen2 extends Component {
 
     this.state = { emotion: 'Want', text: '' };
   }
-
-  replacePerspective = currentThought => {
-    let thought = currentThought.toLowerCase().split(' ');
-    const perspectiveObj = {
-      my: 'your',
-      me: 'you',
-      myself: 'yourself', // Prettier defaults to single quotes :(
-      i: 'you',
-      "i'll": "you'll",
-      "i'm": 'you are'
-    };
-
-    // loop through words and replace first-person view
-    // with second-person view
-    return thought
-      .map(word => {
-        if (perspectiveObj.hasOwnProperty(word)) {
-          return perspectiveObj[word];
-        } else {
-          return word;
-        }
-      })
-      .join(' ');
-  };
 
   navigateAnswer2 = () => {
     this.props.updateAnswer2(this.state.text);
@@ -56,7 +33,7 @@ class ThoughtScreen2 extends Component {
         <ThoughtText>
           Why do you want to{' '}
           <ThoughtResponse>
-            {this.replacePerspective(this.props.answer1)}
+            {replacePerspective(this.props.answer1)}
           </ThoughtResponse>?
         </ThoughtText>
         <View style={styles.responsePicker}>

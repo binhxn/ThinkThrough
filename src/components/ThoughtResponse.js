@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 
-import { MAIN_COLOR } from '../constants';
+import { MAIN_COLOR } from '../helpers/constants';
 
 const ThoughtResponse = ({ children }) => {
   return <Text style={styles.text}>{children}</Text>;
