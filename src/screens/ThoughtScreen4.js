@@ -12,9 +12,6 @@ import {
 import FinalThoughts from '../components/FinalThoughts';
 
 class ThoughtScreen4 extends Component {
-  constructor(props) {
-    super(props);
-  }
   static navigationOptions = () => HeaderStyles('Final Thoughts', 'Home', null);
 
   // Disables back button on stackNavigation
@@ -26,29 +23,31 @@ class ThoughtScreen4 extends Component {
     this.props.navigation.dispatch(resetAction);
   };
 
-  // Need to find a way to simplify all these components
   render() {
+    const { answer1, answer2, answer3, emotion } = this.props;
+    // Having trouble parsing with inline ternary,
+    // will resort to variables to ease the work
+    // in FinalThoughts.js
+    const emotion1 = emotion !== 'Feel' ? 'to ' : '';
+    const emotion2 = emotion !== 'Feel' ? emotion : emotion;
+    const emotion3 = emotion !== 'Feel' && <ThoughtText>to </ThoughtText>;
+
     return (
+      // Need to find a way to simplify all these components
       <View style={styles.container}>
         <FinalThoughts>
           <ThoughtText>I want to </ThoughtText>
-          <ThoughtResponse>{this.props.answer1}</ThoughtResponse>
+          <ThoughtResponse>{answer1} </ThoughtResponse>
           <ThoughtText>because I </ThoughtText>
-          <ThoughtResponse>{this.props.emotion}</ThoughtResponse>
-          <ThoughtText>
-            {this.props.emotion !== 'Feel' ? ' to ' : ' '}
-          </ThoughtText>
-          <ThoughtResponse>{this.props.answer2}</ThoughtResponse>
+          <ThoughtResponse>{emotion} </ThoughtResponse>
+          <ThoughtText>{emotion1}</ThoughtText>
+          <ThoughtResponse>{answer2}</ThoughtResponse>
           <ThoughtText>. I </ThoughtText>
-          <ThoughtResponse>
-            {this.props.emotion !== 'Feel'
-              ? this.props.emotion
-              : this.props.emotion}{' '}
-          </ThoughtResponse>
-          {this.props.emotion !== 'Feel' && <ThoughtText>to </ThoughtText>}
-          <ThoughtResponse>{this.props.answer2}</ThoughtResponse>
+          <ThoughtResponse>{emotion2}</ThoughtResponse>
+          {emotion3}
+          <ThoughtResponse>{answer2} </ThoughtResponse>
           <ThoughtText>because </ThoughtText>
-          <ThoughtResponse>{this.props.answer3}</ThoughtResponse>
+          <ThoughtResponse>{answer3}</ThoughtResponse>
           <ThoughtText>.</ThoughtText>
         </FinalThoughts>
         <Button onPress={() => this.resetNavigation('Home')}>

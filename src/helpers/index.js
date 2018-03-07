@@ -4,14 +4,14 @@ export const replacePerspective = currentThought => {
   const perspectiveObj = {
     "i'll": "you'll",
     "i'm": "you're",
-    my: 'your',
+    i: 'you',
     me: 'you',
-    myself: 'yourself', // Prettier defaults to single quotes :(
-    i: 'you'
+    my: 'your',
+    myself: 'yourself' // Prettier defaults to single quotes :(
   };
 
   // TODO: Find why it's not converting contracted words
-  // loop through words and replace first-person view
+  // Loop through words and replace first-person view
   // with second-person view
   return thought
     .map(word => {
@@ -30,4 +30,4 @@ export const replacePerspective = currentThought => {
     .join(' ');
 };
 
-export const convertComponentsToString = components => {};
+// export const convertComponentsToString = components => {};

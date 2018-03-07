@@ -4,40 +4,41 @@ import { connect } from 'react-redux';
 
 import { Button, HeaderStyles, ThoughtText, ThoughtResponse } from './index';
 
+// "Workaround" component to target children Nodes
 class FinalThoughts extends Component {
+  state = { thoughtString: '' };
+
+  // Performing Children manipulation in componentDidMount
+  // to make sure strings are parsed correctly and
+  // mounted after rendering
   componentDidMount() {
-    console.log('this.props.children', this.props.children);
-    console.log('React.Children', React.Children);
-    React.Children.forEach(child => {
-      console.log(child);
+    const { answer1, answer2, answer3, emotion } = this.props;
+    // Loops through children array to concatenate as strings
+    const children = React.Children.toArray(this.props.children);
+    const thoughtString = children
+      .map(item => {
+        // if item has array length of 2 and does not have emotion of feel,
+        // return the first index of that array
+        // DOESN'T SEEM TO WORK
+        // need to play around with props.children
+        console.log('item.props.children', item.props.children);
+
+        // console.log('item.props.children.length', item.props.children.length);
+        // console.log(item.props.children);
+        return item.props.children;
+      })
+      .join('');
+
+    this.setState({
+      thoughtString
     });
   }
 
   render() {
-    const children = React.Children.toArray(this.props.children);
-    console.log('children', React.Children.count(this.props.children));
-
     return (
       <View style={styles.container}>
-        <ThoughtText>I want to </ThoughtText>
-        <ThoughtResponse>{this.props.answer1.toLowerCase()}</ThoughtResponse>
-        <ThoughtText>because I </ThoughtText>
-        <ThoughtResponse>{this.props.emotion.toLowerCase()}</ThoughtResponse>
-        <ThoughtText>
-          {this.props.emotion !== 'Feel' ? ' to ' : ' '}
-        </ThoughtText>
-        <ThoughtResponse>{this.props.answer2.toLowerCase()}</ThoughtResponse>
-        <ThoughtText>. I </ThoughtText>
-        <ThoughtResponse>
-          {this.props.emotion !== 'Feel'
-            ? this.props.emotion.toLowerCase()
-            : this.props.emotion.toLowerCase()}{' '}
-        </ThoughtResponse>
-        {this.props.emotion !== 'Feel' && <ThoughtText>to </ThoughtText>}
-        <ThoughtResponse>{this.props.answer2.toLowerCase()}</ThoughtResponse>
-        <ThoughtText>because </ThoughtText>
-        <ThoughtResponse>{this.props.answer3.toLowerCase()}</ThoughtResponse>
-        <ThoughtText>.</ThoughtText>
+        {this.props.children}
+        {this.state.thoughtString && <Text>{this.state.thoughtString}</Text>}
       </View>
     );
   }
