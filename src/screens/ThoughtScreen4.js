@@ -9,9 +9,21 @@ import {
   ThoughtText,
   ThoughtResponse
 } from '../components';
+import FinalThoughts from '../components/FinalThoughts';
 
 class ThoughtScreen4 extends Component {
+  constructor(props) {
+    super(props);
+  }
   static navigationOptions = () => HeaderStyles('Final Thoughts', 'Home', null);
+
+  // componentDidMount() {
+  //   console.log('this.props.children', this.props.children);
+  //   console.log('React.Children', React.Children);
+  //   React.Children.forEach(child => {
+  //     console.log(child);
+  //   });
+  // }
 
   // TODO
   getAllWordsIntoString = () => {};
@@ -29,7 +41,7 @@ class ThoughtScreen4 extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.subContainer}>
+        <FinalThoughts>
           <ThoughtText>I want to </ThoughtText>
           <ThoughtResponse>{this.props.answer1.toLowerCase()}</ThoughtResponse>
           <ThoughtText>because I </ThoughtText>
@@ -44,12 +56,12 @@ class ThoughtScreen4 extends Component {
               ? this.props.emotion.toLowerCase()
               : this.props.emotion.toLowerCase()}{' '}
           </ThoughtResponse>
-          {this.props.emotion !== 'Feel' && <ThoughtText>to</ThoughtText>}
+          {this.props.emotion !== 'Feel' && <ThoughtText>to </ThoughtText>}
           <ThoughtResponse>{this.props.answer2.toLowerCase()}</ThoughtResponse>
           <ThoughtText>because </ThoughtText>
           <ThoughtResponse>{this.props.answer3.toLowerCase()}</ThoughtResponse>
           <ThoughtText>.</ThoughtText>
-        </View>
+        </FinalThoughts>
         <Button onPress={() => this.resetNavigation('Home')}>
           Return Home
         </Button>
