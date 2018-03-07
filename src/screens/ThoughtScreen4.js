@@ -17,17 +17,6 @@ class ThoughtScreen4 extends Component {
   }
   static navigationOptions = () => HeaderStyles('Final Thoughts', 'Home', null);
 
-  // componentDidMount() {
-  //   console.log('this.props.children', this.props.children);
-  //   console.log('React.Children', React.Children);
-  //   React.Children.forEach(child => {
-  //     console.log(child);
-  //   });
-  // }
-
-  // TODO
-  getAllWordsIntoString = () => {};
-
   // Disables back button on stackNavigation
   resetNavigation = targetRoute => {
     const resetAction = NavigationActions.reset({

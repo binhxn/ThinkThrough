@@ -17,12 +17,8 @@ import {
 } from '../components';
 
 class ThoughtScreen1 extends Component {
+  state = { text: '' };
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
-
-  constructor(props) {
-    super(props);
-    this.state = { text: '' };
-  }
 
   navigateAnswer1 = () => {
     this.props.updateAnswer1(this.state.text);

@@ -12,12 +12,11 @@ import {
 import { replacePerspective } from '../helpers';
 
 class ThoughtScreen2 extends Component {
+  state = {
+    emotion: 'Want',
+    text: ''
+  };
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
-
-  constructor(props) {
-    super(props);
-    this.state = { emotion: 'Want', text: '' };
-  }
 
   navigateAnswer2 = () => {
     this.props.updateAnswer2(this.state.text);
