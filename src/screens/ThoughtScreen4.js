@@ -32,23 +32,23 @@ class ThoughtScreen4 extends Component {
       <View style={styles.container}>
         <FinalThoughts>
           <ThoughtText>I want to </ThoughtText>
-          <ThoughtResponse>{this.props.answer1.toLowerCase()}</ThoughtResponse>
+          <ThoughtResponse>{this.props.answer1}</ThoughtResponse>
           <ThoughtText>because I </ThoughtText>
-          <ThoughtResponse>{this.props.emotion.toLowerCase()}</ThoughtResponse>
+          <ThoughtResponse>{this.props.emotion}</ThoughtResponse>
           <ThoughtText>
             {this.props.emotion !== 'Feel' ? ' to ' : ' '}
           </ThoughtText>
-          <ThoughtResponse>{this.props.answer2.toLowerCase()}</ThoughtResponse>
+          <ThoughtResponse>{this.props.answer2}</ThoughtResponse>
           <ThoughtText>. I </ThoughtText>
           <ThoughtResponse>
             {this.props.emotion !== 'Feel'
-              ? this.props.emotion.toLowerCase()
-              : this.props.emotion.toLowerCase()}{' '}
+              ? this.props.emotion
+              : this.props.emotion}{' '}
           </ThoughtResponse>
           {this.props.emotion !== 'Feel' && <ThoughtText>to </ThoughtText>}
-          <ThoughtResponse>{this.props.answer2.toLowerCase()}</ThoughtResponse>
+          <ThoughtResponse>{this.props.answer2}</ThoughtResponse>
           <ThoughtText>because </ThoughtText>
-          <ThoughtResponse>{this.props.answer3.toLowerCase()}</ThoughtResponse>
+          <ThoughtResponse>{this.props.answer3}</ThoughtResponse>
           <ThoughtText>.</ThoughtText>
         </FinalThoughts>
         <Button onPress={() => this.resetNavigation('Home')}>

@@ -27,11 +27,11 @@ class ThoughtScreen3 extends Component {
           Why do you{' '}
           <ThoughtResponse>
             {this.props.emotion !== 'Feel'
-              ? `${this.props.emotion.toLowerCase()} to ${replacePerspective(
-                  this.props.answer2.toLowerCase()
+              ? `${this.props.emotion} to ${replacePerspective(
+                  this.props.answer2
                 )}?`
-              : `${this.props.emotion.toLowerCase()} ${replacePerspective(
-                  this.props.answer2.toLowerCase()
+              : `${this.props.emotion} ${replacePerspective(
+                  this.props.answer2
                 )}?`}
           </ThoughtResponse>
         </ThoughtText>

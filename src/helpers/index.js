@@ -1,6 +1,6 @@
 // Helper functions
 export const replacePerspective = currentThought => {
-  let thought = currentThought.toLowerCase().split(' ');
+  let thought = currentThought.split(' ');
   const perspectiveObj = {
     "i'll": "you'll",
     "i'm": "you're",
@@ -29,3 +29,5 @@ export const replacePerspective = currentThought => {
     })
     .join(' ');
 };
+
+export const convertComponentsToString = components => {};
