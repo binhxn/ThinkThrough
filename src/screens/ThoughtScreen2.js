@@ -13,7 +13,7 @@ import { replacePerspective } from '../helpers';
 
 class ThoughtScreen2 extends Component {
   state = {
-    emotion: 'Want',
+    emotion: 'want',
     text: ''
   };
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
@@ -44,11 +44,11 @@ class ThoughtScreen2 extends Component {
               this.setState({ emotion: itemValue })
             }
           >
-            <Picker.Item label="Want" value="Want" />
-            <Picker.Item label="Need" value="Need" />
-            <Picker.Item label="Feel" value="Feel" />
+            <Picker.Item label="Want" value="want" />
+            <Picker.Item label="Need" value="need" />
+            <Picker.Item label="Feel" value="feel" />
           </Picker>
-          {this.state.emotion !== 'Feel' && (
+          {this.state.emotion !== 'feel' && (
             <ThoughtResponse> to</ThoughtResponse>
           )}
         </View>
@@ -56,7 +56,7 @@ class ThoughtScreen2 extends Component {
           <TextInput
             style={styles.input}
             placeholder={
-              this.state.emotion === 'Feel'
+              this.state.emotion === 'feel'
                 ? 'Complacent at work'
                 : 'Make a difference at work'
             }

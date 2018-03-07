@@ -26,7 +26,7 @@ class ThoughtScreen3 extends Component {
         <ThoughtText>
           Why do you{' '}
           <ThoughtResponse>
-            {this.props.emotion !== 'Feel'
+            {this.props.emotion !== 'feel'
               ? `${this.props.emotion} to ${replacePerspective(
                   this.props.answer2
                 )}?`
@@ -35,12 +35,15 @@ class ThoughtScreen3 extends Component {
                 )}?`}
           </ThoughtResponse>
         </ThoughtText>
-        <TextInput
-          style={styles.input}
-          placeholder="This will make me happy long term"
-          onChangeText={text => this.setState({ text })}
-          value={this.state.text}
-        />
+        <View style={styles.subcontainer}>
+          <ThoughtText>Because </ThoughtText>
+          <TextInput
+            style={styles.input}
+            placeholder="This will make me happy long term"
+            onChangeText={text => this.setState({ text })}
+            value={this.state.text}
+          />
+        </View>
         <Button onPress={this.navigateAnswer3}>Find your cause</Button>
       </View>
     );
@@ -57,6 +60,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  subcontainer: {
+    marginTop: 50
   },
   input: {
     height: 40,

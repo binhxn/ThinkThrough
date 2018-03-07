@@ -17,14 +17,14 @@ class FinalThoughts extends Component {
     const children = React.Children.toArray(this.props.children);
     const thoughtString = children
       .map(item => {
+        console.log('item', item);
         // if item has array length of 2 and does not have emotion of feel,
         // return the first index of that array
         // DOESN'T SEEM TO WORK
         // need to play around with props.children
-        console.log('item.props.children', item.props.children);
+        // console.log('item.props.children', item.props.children);
 
         // console.log('item.props.children.length', item.props.children.length);
-        // console.log(item.props.children);
         return item.props.children;
       })
       .join('');

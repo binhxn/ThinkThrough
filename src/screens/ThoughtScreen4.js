@@ -28,13 +28,25 @@ class ThoughtScreen4 extends Component {
     // Having trouble parsing with inline ternary,
     // will resort to variables to ease the work
     // in FinalThoughts.js
-    const emotion1 = emotion !== 'Feel' ? 'to ' : '';
-    const emotion2 = emotion !== 'Feel' ? emotion : emotion;
-    const emotion3 = emotion !== 'Feel' && <ThoughtText>to </ThoughtText>;
+    const emotion1 = emotion !== 'feel' ? 'to ' : '';
+    const emotion2 = emotion !== 'feel' ? emotion : emotion;
+    const emotion3 = emotion !== 'feel' && <ThoughtText>to </ThoughtText>;
 
     return (
       // Need to find a way to simplify all these components
       <View style={styles.container}>
+        {/* <View>
+          <ThoughtText>
+            I want to <ThoughtResponse>{answer1} </ThoughtResponse>
+            because I <ThoughtResponse>{emotion} </ThoughtResponse>
+            {emotion1} <ThoughtResponse>{answer2}</ThoughtResponse>
+            . I <ThoughtResponse>{emotion2} </ThoughtResponse>
+            {emotion3}
+            <ThoughtResponse>{answer2} </ThoughtResponse>
+            because <ThoughtResponse>{answer3}</ThoughtResponse>
+            .
+          </ThoughtText>
+        </View> */}
         <FinalThoughts>
           <ThoughtText>I want to </ThoughtText>
           <ThoughtResponse>{answer1} </ThoughtResponse>
@@ -43,7 +55,7 @@ class ThoughtScreen4 extends Component {
           <ThoughtText>{emotion1}</ThoughtText>
           <ThoughtResponse>{answer2}</ThoughtResponse>
           <ThoughtText>. I </ThoughtText>
-          <ThoughtResponse>{emotion2}</ThoughtResponse>
+          <ThoughtResponse>{emotion2} </ThoughtResponse>
           {emotion3}
           <ThoughtResponse>{answer2} </ThoughtResponse>
           <ThoughtText>because </ThoughtText>
