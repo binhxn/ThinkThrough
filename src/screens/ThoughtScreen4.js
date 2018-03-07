@@ -49,15 +49,15 @@ class ThoughtScreen4 extends Component {
         </View> */}
         <FinalThoughts>
           <ThoughtText>I want to </ThoughtText>
-          <ThoughtResponse>{answer1} </ThoughtResponse>
+          <ThoughtResponse>{`${answer1} `}</ThoughtResponse>
           <ThoughtText>because I </ThoughtText>
-          <ThoughtResponse>{emotion} </ThoughtResponse>
+          <ThoughtResponse>{`${emotion} `}</ThoughtResponse>
           <ThoughtText>{emotion1}</ThoughtText>
           <ThoughtResponse>{answer2}</ThoughtResponse>
           <ThoughtText>. I </ThoughtText>
-          <ThoughtResponse>{emotion2} </ThoughtResponse>
+          <ThoughtResponse>{`${emotion2} `}</ThoughtResponse>
           {emotion3}
-          <ThoughtResponse>{answer2} </ThoughtResponse>
+          <ThoughtResponse>{`${answer2} `}</ThoughtResponse>
           <ThoughtText>because </ThoughtText>
           <ThoughtResponse>{answer3}</ThoughtResponse>
           <ThoughtText>.</ThoughtText>

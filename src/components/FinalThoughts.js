@@ -12,19 +12,10 @@ class FinalThoughts extends Component {
   // to make sure strings are parsed correctly and
   // mounted after rendering
   componentDidMount() {
-    const { answer1, answer2, answer3, emotion } = this.props;
     // Loops through children array to concatenate as strings
     const children = React.Children.toArray(this.props.children);
     const thoughtString = children
       .map(item => {
-        console.log('item', item);
-        // if item has array length of 2 and does not have emotion of feel,
-        // return the first index of that array
-        // DOESN'T SEEM TO WORK
-        // need to play around with props.children
-        // console.log('item.props.children', item.props.children);
-
-        // console.log('item.props.children.length', item.props.children.length);
         return item.props.children;
       })
       .join('');
@@ -53,9 +44,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  const { answer1, answer2, answer3, emotion } = state.thoughts;
-
-  return { answer1, answer2, answer3, emotion };
+  // May not need this anymore
 };
 
 export default connect(mapStateToProps)(FinalThoughts);
