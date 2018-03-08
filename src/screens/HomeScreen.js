@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 import { logHello } from '../actions';
@@ -12,7 +12,10 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Insert logo here</Text>
+        <Image
+          style={styles.logo}
+          source={require('../assets/icons/shocker-icon.png')}
+        />
         <View style={styles.buttonContainer}>
           <Button
             onPress={() => this.props.navigation.navigate('ThoughtScreen1')}
@@ -26,6 +29,11 @@ class Home extends Component {
 }
 
 const styles = StyleSheet.create({
+  logo: {
+    marginBottom: 100,
+    width: 175,
+    height: 175
+  },
   title: {
     marginBottom: 200,
     fontSize: 24

@@ -17,13 +17,25 @@ import {
 } from '../components';
 
 class ThoughtScreen1 extends Component {
-  state = { text: '' };
+  state = { text: '', error: '' };
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
 
-  navigateAnswer1 = () => {
-    this.props.updateAnswer1(this.state.text);
+  validateText = text => {
+    if (this.state.text.length >= 0) {
+      this.setState({ error: '' });
+    }
+    this.setState({ text });
+  };
 
-    this.props.navigation.navigate('ThoughtScreen2');
+  navigateAnswer1 = () => {
+    if (!this.state.text) {
+      this.setState({
+        error: 'Please fill in the field'
+      });
+    } else {
+      this.props.updateAnswer1(this.state.text);
+      this.props.navigation.navigate('ThoughtScreen2');
+    }
   };
 
   render() {
@@ -35,9 +47,10 @@ class ThoughtScreen1 extends Component {
           <TextInput
             style={styles.input}
             placeholder="Change my career"
-            onChangeText={text => this.setState({ text })}
+            onChangeText={text => this.validateText(text)}
             value={this.state.text}
           />
+          {this.state.error.length > 0 && <Text>{this.state.error}</Text>}
           <Button onPress={this.navigateAnswer1}>Continue</Button>
         </View>
       </KeyboardAvoidingView>
