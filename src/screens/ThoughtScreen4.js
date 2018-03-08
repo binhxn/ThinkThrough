@@ -16,7 +16,7 @@ class ThoughtScreen4 extends Component {
   static navigationOptions = () => HeaderStyles('Final Thoughts', 'Home', null);
 
   // Disables back button on stackNavigation
-  resetNavigation = targetRoute => {
+  _resetNavigation = targetRoute => {
     const resetAction = NavigationActions.reset({
       index: 0,
       actions: [NavigationActions.navigate({ routeName: targetRoute })]
@@ -24,9 +24,9 @@ class ThoughtScreen4 extends Component {
     this.props.navigation.dispatch(resetAction);
   };
 
-  storeFinalThought = () => {
+  _storeFinalThought = () => {
     this.props.addThought(this.props.finalThoughts);
-    this.resetNavigation('Home'); // Reset stackNav to Home
+    this._resetNavigation('Home'); // Reset stackNav to Home
     this.props.navigation.navigate('Thoughts'); // Navigates to Thoughts Tab
   };
 
@@ -58,10 +58,10 @@ class ThoughtScreen4 extends Component {
           <ThoughtResponse>{answer3}</ThoughtResponse>
           <ThoughtText>.</ThoughtText>
         </FinalThoughts>
-        <Button onPress={() => this.resetNavigation('ThoughtScreen1')}>
+        <Button onPress={() => this._resetNavigation('ThoughtScreen1')}>
           Start Over
         </Button>
-        <Button onPress={this.storeFinalThought}>Save Thought</Button>
+        <Button onPress={this._storeFinalThought}>Save Thought</Button>
       </View>
     );
   }

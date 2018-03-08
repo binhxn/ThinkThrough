@@ -16,7 +16,7 @@ class ThoughtScreen3 extends Component {
   state = { text: '', error: '' };
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
 
-  validateInput = text => {
+  _validateInput = text => {
     if (this.state.text.length >= 0) {
       this.setState({ error: '' });
     }
@@ -54,7 +54,7 @@ class ThoughtScreen3 extends Component {
           <TextInput
             style={styles.input}
             placeholder="This will make me happy long term"
-            onChangeText={text => this.validateInput(text)}
+            onChangeText={text => this._validateInput(text)}
             value={this.state.text}
           />
           {this.state.error.length > 0 && (

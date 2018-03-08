@@ -20,14 +20,14 @@ class ThoughtScreen2 extends Component {
   };
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
 
-  validateInput = text => {
+  _validateInput = text => {
     if (this.state.text.length >= 0) {
       this.setState({ error: '' });
     }
     this.setState({ text });
   };
 
-  navigateAnswer2 = () => {
+  _navigateAnswer2 = () => {
     if (!this.state.text) {
       this.setState({
         error: 'Please fill in the field'
@@ -73,13 +73,13 @@ class ThoughtScreen2 extends Component {
                 ? 'Complacent at work'
                 : 'Make a difference at work'
             }
-            onChangeText={text => this.validateInput(text)}
+            onChangeText={text => this._validateInput(text)}
             value={this.state.text}
           />
           {this.state.error.length > 0 && (
             <ErrorMessage>{this.state.error}</ErrorMessage>
           )}
-          <Button onPress={this.navigateAnswer2}>Continue</Button>
+          <Button onPress={this._navigateAnswer2}>Continue</Button>
         </View>
       </View>
     );
