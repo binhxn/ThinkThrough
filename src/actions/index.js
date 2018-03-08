@@ -3,7 +3,9 @@ import {
   UPDATE_ANSWER_2,
   UPDATE_ANSWER_3,
   UPDATE_ANSWER_4,
-  UPDATE_EMOTION
+  UPDATE_EMOTION,
+  CONCAT_THOUGHT,
+  ADD_THOUGHT
 } from './types';
 
 export const updateAnswer1 = answer1 => {
@@ -38,5 +40,19 @@ export const updateEmotion = emotion => {
   return {
     type: UPDATE_EMOTION,
     emotion: emotion.toLowerCase()
+  };
+};
+
+export const concatThought = thought => {
+  return {
+    type: CONCAT_THOUGHT,
+    thought
+  };
+};
+
+export const addThought = thought => {
+  return {
+    type: ADD_THOUGHT,
+    thought
   };
 };

@@ -3,11 +3,15 @@ import {
   UPDATE_ANSWER_2,
   UPDATE_ANSWER_3,
   UPDATE_ANSWER_4,
-  UPDATE_EMOTION
+  UPDATE_EMOTION,
+  CONCAT_THOUGHT,
+  ADD_THOUGHT
 } from '../actions/types';
 
 const INITIAL_STATE = {
   thoughts: [],
+  finalThoughts: '',
+  emotion: '',
   answer1: '',
   answer2: '',
   answer3: '',
@@ -31,6 +35,12 @@ export default (state = INITIAL_STATE, action) => {
 
     case UPDATE_EMOTION:
       return { ...state, emotion: action.emotion };
+
+    case CONCAT_THOUGHT:
+      return { ...state, finalThoughts: action.thought };
+
+    case ADD_THOUGHT:
+      return { ...state, thoughts: [...state.thoughts, action.thought] };
 
     default:
       return state;

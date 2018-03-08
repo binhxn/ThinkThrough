@@ -3,15 +3,14 @@ import { View, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 import { Button, HeaderStyles, ThoughtText, ThoughtResponse } from './index';
+import { concatThought } from '../actions';
 
 // "Workaround" component to target children Nodes
 class FinalThoughts extends Component {
-  state = { thoughtString: '' };
-
   // Performing Children manipulation in componentDidMount
   // to make sure strings are parsed correctly and
   // mounted after rendering
-  componentDidMount() {
+  componentDidMount = () => {
     // Loops through children array to concatenate as strings
     const children = React.Children.toArray(this.props.children);
     const thoughtString = children
@@ -20,16 +19,14 @@ class FinalThoughts extends Component {
       })
       .join('');
 
-    this.setState({
-      thoughtString
-    });
-  }
+    this.props.concatThought(thoughtString);
+  };
 
   render() {
     return (
       <View style={styles.container}>
         {this.props.children}
-        {this.state.thoughtString && <Text>{this.state.thoughtString}</Text>}
+        {this.props.finalThoughts && <Text>{this.props.finalThoughts}</Text>}
       </View>
     );
   }
@@ -44,7 +41,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  // May not need this anymore
+  const { finalThoughts } = state.thoughts;
+
+  return { finalThoughts };
 };
 
-export default connect(mapStateToProps)(FinalThoughts);
+export default connect(mapStateToProps, { concatThought })(FinalThoughts);

@@ -10,6 +10,7 @@ import {
   ThoughtResponse
 } from '../components';
 import FinalThoughts from '../components/FinalThoughts';
+import { addThought } from '../actions';
 
 class ThoughtScreen4 extends Component {
   static navigationOptions = () => HeaderStyles('Final Thoughts', 'Home', null);
@@ -23,6 +24,11 @@ class ThoughtScreen4 extends Component {
     this.props.navigation.dispatch(resetAction);
   };
 
+  storeFinalThought = () => {
+    this.props.addThought(this.props.finalThoughts);
+    this.props.navigation.navigate('Thoughts');
+  };
+
   render() {
     const { answer1, answer2, answer3, emotion } = this.props;
     // Having trouble parsing with inline ternary,
@@ -33,20 +39,9 @@ class ThoughtScreen4 extends Component {
     const emotion3 = emotion !== 'feel' && <ThoughtText>to </ThoughtText>;
 
     return (
-      // Need to find a way to simplify all these components
+      // Wrapped each text in a component so we can map
+      // over them as child components in FinalThoughts
       <View style={styles.container}>
-        {/* <View>
-          <ThoughtText>
-            I want to <ThoughtResponse>{answer1} </ThoughtResponse>
-            because I <ThoughtResponse>{emotion} </ThoughtResponse>
-            {emotion1} <ThoughtResponse>{answer2}</ThoughtResponse>
-            . I <ThoughtResponse>{emotion2} </ThoughtResponse>
-            {emotion3}
-            <ThoughtResponse>{answer2} </ThoughtResponse>
-            because <ThoughtResponse>{answer3}</ThoughtResponse>
-            .
-          </ThoughtText>
-        </View> */}
         <FinalThoughts>
           <ThoughtText>I want to </ThoughtText>
           <ThoughtResponse>{`${answer1} `}</ThoughtResponse>
@@ -65,9 +60,7 @@ class ThoughtScreen4 extends Component {
         <Button onPress={() => this.resetNavigation('Home')}>
           Return Home
         </Button>
-        <Button onPress={() => this.props.navigation.navigate('Thoughts')}>
-          View All Thoughts
-        </Button>
+        <Button onPress={this.storeFinalThought}>View All Thoughts</Button>
       </View>
     );
   }
@@ -88,9 +81,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  const { answer1, answer2, answer3, emotion } = state.thoughts;
+  const { answer1, answer2, answer3, emotion, finalThoughts } = state.thoughts;
 
-  return { answer1, answer2, answer3, emotion };
+  return { answer1, answer2, answer3, emotion, finalThoughts };
 };
 
-export default connect(mapStateToProps)(ThoughtScreen4);
+export default connect(mapStateToProps, { addThought })(ThoughtScreen4);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 
 import { HeaderStyles, Header } from '../components';
 
@@ -8,11 +9,15 @@ class AllThoughtsScreen extends Component {
     HeaderStyles('All Thoughts', 'Thoughts', null);
 
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>All thoughts</Text>
-      </View>
-    );
+    const allThoughts = this.props.thoughts.map((thought, i) => {
+      return <Text key={i}>{thought}</Text>;
+    });
+
+    if (this.props.thoughts.length === 0) {
+      return <Text>You have no current thoughts</Text>;
+    }
+
+    return <View style={styles.container}>{allThoughts}</View>;
   }
 }
 
@@ -26,4 +31,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AllThoughtsScreen;
+const mapStateToProps = state => {
+  const { thoughts } = state.thoughts;
+
+  return { thoughts };
+};
+
+export default connect(mapStateToProps)(AllThoughtsScreen);
