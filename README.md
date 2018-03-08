@@ -17,9 +17,13 @@ Besides the obvious, other technologies used in this project include:
 * :white_check_mark: Add basic TextInput validation
 * :white_check_mark: Save all Thoughts into readable string
 * :white_check_mark: Reset navigation on completion
-* :black_square_button: Add FlatList to render Thoughts
-* :black_square_button: Add redux-persist to save Thoughts locally
-* :black_square_button: Add tests with Jest/Enzyme
-* :black_square_button: Research/implement styled-components
-* :black_square_button: Research/implement react-native-elements
-* :black_square_button: Organize file structure
+* :x: Add FlatList to render Thoughts
+* :x: Add redux-persist to save Thoughts locally
+* :x: Add tests with Jest/Enzyme
+* :x: Research/implement styled-components
+* :x: Research/implement react-native-elements
+* :x: Organize file structure
+
+## BUGS
+
+* :x: Investigate slow animation on Picker component
