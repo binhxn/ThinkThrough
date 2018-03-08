@@ -29,5 +29,3 @@ export const replacePerspective = currentThought => {
     })
     .join(' ');
 };
-
-// export const convertComponentsToString = components => {};

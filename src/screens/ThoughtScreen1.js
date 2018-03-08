@@ -13,14 +13,15 @@ import {
   Button,
   HeaderStyles,
   ThoughtResponse,
-  ThoughtText
+  ThoughtText,
+  ErrorMessage
 } from '../components';
 
 class ThoughtScreen1 extends Component {
   state = { text: '', error: '' };
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
 
-  validateText = text => {
+  validateInput = text => {
     if (this.state.text.length >= 0) {
       this.setState({ error: '' });
     }
@@ -47,10 +48,12 @@ class ThoughtScreen1 extends Component {
           <TextInput
             style={styles.input}
             placeholder="Change my career"
-            onChangeText={text => this.validateText(text)}
+            onChangeText={text => this.validateInput(text)}
             value={this.state.text}
           />
-          {this.state.error.length > 0 && <Text>{this.state.error}</Text>}
+          {this.state.error.length > 0 && (
+            <ErrorMessage>{this.state.error}</ErrorMessage>
+          )}
           <Button onPress={this.navigateAnswer1}>Continue</Button>
         </View>
       </KeyboardAvoidingView>
@@ -67,7 +70,7 @@ const styles = StyleSheet.create({
     width: 200,
     borderBottomWidth: 1,
     borderBottomColor: 'gray',
-    marginBottom: 20,
+    marginBottom: 30,
     textAlign: 'center',
     justifyContent: 'center'
   },

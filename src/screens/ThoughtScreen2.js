@@ -7,22 +7,36 @@ import {
   Button,
   HeaderStyles,
   ThoughtText,
-  ThoughtResponse
+  ThoughtResponse,
+  ErrorMessage
 } from '../components';
 import { replacePerspective } from '../helpers';
 
 class ThoughtScreen2 extends Component {
   state = {
     emotion: 'want',
-    text: ''
+    text: '',
+    error: ''
   };
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
 
-  navigateAnswer2 = () => {
-    this.props.updateAnswer2(this.state.text);
-    this.props.updateEmotion(this.state.emotion);
+  validateInput = text => {
+    if (this.state.text.length >= 0) {
+      this.setState({ error: '' });
+    }
+    this.setState({ text });
+  };
 
-    this.props.navigation.navigate('ThoughtScreen3');
+  navigateAnswer2 = () => {
+    if (!this.state.text) {
+      this.setState({
+        error: 'Please fill in the field'
+      });
+    } else {
+      this.props.updateAnswer2(this.state.text);
+      this.props.updateEmotion(this.state.emotion);
+      this.props.navigation.navigate('ThoughtScreen3');
+    }
   };
 
   render() {
@@ -59,9 +73,12 @@ class ThoughtScreen2 extends Component {
                 ? 'Complacent at work'
                 : 'Make a difference at work'
             }
-            onChangeText={text => this.setState({ text })}
+            onChangeText={text => this.validateInput(text)}
             value={this.state.text}
           />
+          {this.state.error.length > 0 && (
+            <ErrorMessage>{this.state.error}</ErrorMessage>
+          )}
           <Button onPress={this.navigateAnswer2}>Continue</Button>
         </View>
       </View>

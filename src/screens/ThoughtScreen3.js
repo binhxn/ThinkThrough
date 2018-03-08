@@ -7,17 +7,31 @@ import {
   Button,
   HeaderStyles,
   ThoughtText,
-  ThoughtResponse
+  ThoughtResponse,
+  ErrorMessage
 } from '../components';
 import { replacePerspective } from '../helpers';
 
 class ThoughtScreen3 extends Component {
-  state = { text: '' };
+  state = { text: '', error: '' };
   static navigationOptions = () => HeaderStyles('New Thought', 'Home');
 
-  navigateAnswer3 = () => {
-    this.props.updateAnswer3(this.state.text);
-    this.props.navigation.navigate('ThoughtScreen4');
+  validateInput = text => {
+    if (this.state.text.length >= 0) {
+      this.setState({ error: '' });
+    }
+    this.setState({ text });
+  };
+
+  _navigateAnswer3 = () => {
+    if (!this.state.text) {
+      this.setState({
+        error: 'Please fill in the field'
+      });
+    } else {
+      this.props.updateAnswer3(this.state.text);
+      this.props.navigation.navigate('ThoughtScreen4');
+    }
   };
 
   render() {
@@ -40,11 +54,14 @@ class ThoughtScreen3 extends Component {
           <TextInput
             style={styles.input}
             placeholder="This will make me happy long term"
-            onChangeText={text => this.setState({ text })}
+            onChangeText={text => this.validateInput(text)}
             value={this.state.text}
           />
+          {this.state.error.length > 0 && (
+            <ErrorMessage>{this.state.error}</ErrorMessage>
+          )}
         </View>
-        <Button onPress={this.navigateAnswer3}>Find your cause</Button>
+        <Button onPress={this._navigateAnswer3}>Find your cause</Button>
       </View>
     );
   }

@@ -58,10 +58,10 @@ class ThoughtScreen4 extends Component {
           <ThoughtResponse>{answer3}</ThoughtResponse>
           <ThoughtText>.</ThoughtText>
         </FinalThoughts>
-        <Button onPress={() => this.resetNavigation('Home')}>
-          Return Home
+        <Button onPress={() => this.resetNavigation('ThoughtScreen1')}>
+          Start Over
         </Button>
-        <Button onPress={this.storeFinalThought}>View All Thoughts</Button>
+        <Button onPress={this.storeFinalThought}>Save Thought</Button>
       </View>
     );
   }
