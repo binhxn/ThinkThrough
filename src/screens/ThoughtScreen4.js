@@ -26,7 +26,8 @@ class ThoughtScreen4 extends Component {
 
   storeFinalThought = () => {
     this.props.addThought(this.props.finalThoughts);
-    this.props.navigation.navigate('Thoughts');
+    this.resetNavigation('Home'); // Reset stackNav to Home
+    this.props.navigation.navigate('Thoughts'); // Navigates to Thoughts Tab
   };
 
   render() {

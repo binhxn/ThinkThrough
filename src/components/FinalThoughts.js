@@ -23,12 +23,7 @@ class FinalThoughts extends Component {
   };
 
   render() {
-    return (
-      <View style={styles.container}>
-        {this.props.children}
-        {this.props.finalThoughts && <Text>{this.props.finalThoughts}</Text>}
-      </View>
-    );
+    return <View style={styles.container}>{this.props.children}</View>;
   }
 }
 

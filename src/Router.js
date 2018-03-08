@@ -12,7 +12,7 @@ import ThoughtScreen3 from './screens/ThoughtScreen3';
 import ThoughtScreen4 from './screens/ThoughtScreen4';
 
 const ThoughtStack = StackNavigator({
-  // Home: { screen: HomeScreen },
+  Home: { screen: HomeScreen },
   ThoughtScreen1: { screen: ThoughtScreen1 },
   ThoughtScreen2: { screen: ThoughtScreen2 },
   ThoughtScreen3: { screen: ThoughtScreen3 },
