@@ -29,6 +29,7 @@ class ThoughtScreen1 extends Component {
   };
 
   _navigateAnswer1 = () => {
+    // Makes sure field is not empty before continuing
     if (!this.state.text) {
       this.setState({
         error: 'Please fill in the field'

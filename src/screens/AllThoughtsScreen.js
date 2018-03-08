@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
 import { HeaderStyles, Header } from '../components';
@@ -8,16 +8,35 @@ class AllThoughtsScreen extends Component {
   static navigationOptions = () =>
     HeaderStyles('All Thoughts', 'Thoughts', null);
 
-  render() {
-    const allThoughts = this.props.thoughts.map((thought, i) => {
-      return <Text key={i}>{thought}</Text>;
-    });
+  _renderItem = ({ item }) => {
+    return <Text style={styles.thought}>{item}</Text>;
+  };
 
+  _renderSeparator = () => {
+    return <View style={styles.separator} />;
+  };
+
+  _keyExtractor = (item, index) => index;
+
+  render() {
     if (this.props.thoughts.length === 0) {
-      return <Text>You have no current thoughts</Text>;
+      return (
+        <View style={styles.thoughtsContainer}>
+          <Text>You have no current thoughts</Text>
+        </View>
+      );
     }
 
-    return <View style={styles.container}>{allThoughts}</View>;
+    return (
+      <View style={styles.container}>
+        <FlatList
+          data={this.props.thoughts}
+          renderItem={this._renderItem}
+          keyExtractor={this._keyExtractor}
+          ItemSeparatorComponent={this._renderSeparator}
+        />
+      </View>
+    );
   }
 }
 
@@ -28,6 +47,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  thought: {
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  separator: {
+    height: 1,
+    width: '90%',
+    backgroundColor: '#CED0CE',
+    alignSelf: 'center'
   }
 });
 
