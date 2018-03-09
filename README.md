@@ -17,8 +17,8 @@ Besides the obvious, other technologies used in this project include:
 * :white_check_mark: Add basic TextInput validation
 * :white_check_mark: Save all Thoughts into readable string
 * :white_check_mark: Reset navigation on completion
-* :x: Add FlatList to render Thoughts
-* :x: Add redux-persist to save Thoughts locally
+* :white_check_mark: Add FlatList to render Thoughts
+* :white_check_mark: Add redux-persist to save Thoughts to AsyncStorage
 * :x: Add tests with Jest/Enzyme
 * :x: Research/implement styled-components
 * :x: Research/implement react-native-elements
