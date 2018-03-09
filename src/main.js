@@ -1,19 +1,19 @@
 import Expo from 'expo';
 import React from 'react';
-import { Text, View } from 'react-native';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
+import { store, persistor } from './store';
 import reducers from './reducers';
 import { Router } from './Router';
-
-const store = createStore(reducers, {}, applyMiddleware());
 
 class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Router />
+        <PersistGate loading={null} persistor={persistor}>
+          <Router />
+        </PersistGate>
       </Provider>
     );
   }
