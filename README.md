@@ -20,6 +20,7 @@ Besides the obvious, other technologies used in this project include:
 * :white_check_mark: Add FlatList to render Thoughts
 * :white_check_mark: Add redux-persist to save Thoughts to AsyncStorage
 * :x: Add ability clear or delete individual Thought (by swipe)
+* :x: Add ability to select on Thought, to show date saved, etc
 * :x: Possibly remove persistGate from main component wrapper
 * :x: Add tests with Jest/Enzyme
 * :x: Research/implement styled-components
