@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  KeyboardAvoidingView
+} from 'react-native';
 import { connect } from 'react-redux';
 
 import { updateAnswer3 } from '../actions';
@@ -37,33 +43,35 @@ class ThoughtScreen3 extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <ThoughtText>
-          Why do you{' '}
-          <ThoughtResponse>
-            {this.props.emotion !== 'feel'
-              ? `${this.props.emotion} to ${replacePerspective(
-                  this.props.answer2
-                )}?`
-              : `${this.props.emotion} ${replacePerspective(
-                  this.props.answer2
-                )}?`}
-          </ThoughtResponse>
-        </ThoughtText>
+      <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <View style={styles.subcontainer}>
-          <ThoughtText>Because </ThoughtText>
-          <TextInput
-            style={styles.input}
-            placeholder="This will make me happy long term"
-            onChangeText={text => this._validateInput(text)}
-            value={this.state.text}
-          />
-          {this.state.error.length > 0 && (
-            <ErrorMessage>{this.state.error}</ErrorMessage>
-          )}
+          <ThoughtText>
+            Why do you{' '}
+            <ThoughtResponse>
+              {this.props.emotion !== 'feel'
+                ? `${this.props.emotion} to ${replacePerspective(
+                    this.props.answer2
+                  )}?`
+                : `${this.props.emotion} ${replacePerspective(
+                    this.props.answer2
+                  )}?`}
+            </ThoughtResponse>
+          </ThoughtText>
+          <View style={styles.subcontainer2}>
+            <ThoughtText>Because </ThoughtText>
+            <TextInput
+              style={styles.input}
+              placeholder="This will make me happy long term"
+              onChangeText={text => this._validateInput(text)}
+              value={this.state.text}
+            />
+            {this.state.error.length > 0 && (
+              <ErrorMessage>{this.state.error}</ErrorMessage>
+            )}
+          </View>
+          <Button onPress={this._navigateAnswer3}>Find your cause</Button>
         </View>
-        <Button onPress={this._navigateAnswer3}>Find your cause</Button>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -80,6 +88,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   subcontainer: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  subcontainer2: {
     marginTop: 50
   },
   input: {

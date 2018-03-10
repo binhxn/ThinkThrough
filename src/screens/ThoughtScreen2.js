@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Picker, TextInput } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Picker,
+  TextInput,
+  KeyboardAvoidingView
+} from 'react-native';
 import { connect } from 'react-redux';
 
 import { updateAnswer2, updateEmotion } from '../actions';
@@ -42,47 +48,49 @@ class ThoughtScreen2 extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <ThoughtText>
-          Why do you want to{' '}
-          <ThoughtResponse>
-            {replacePerspective(this.props.answer1)}
-          </ThoughtResponse>?
-        </ThoughtText>
-        <View style={styles.responsePicker}>
-          <ThoughtResponse>Because I </ThoughtResponse>
-          <Picker
-            style={styles.picker}
-            selectedValue={this.state.emotion}
-            onValueChange={(itemValue, itemIndex) =>
-              this.setState({ emotion: itemValue })
-            }
-          >
-            <Picker.Item label="Want" value="want" />
-            <Picker.Item label="Need" value="need" />
-            <Picker.Item label="Feel" value="feel" />
-          </Picker>
-          {this.state.emotion !== 'feel' && (
-            <ThoughtResponse> to</ThoughtResponse>
-          )}
+      <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <View style={styles.subcontainer}>
+          <ThoughtText>
+            Why do you want to{' '}
+            <ThoughtResponse>
+              {replacePerspective(this.props.answer1)}
+            </ThoughtResponse>?
+          </ThoughtText>
+          <View style={styles.responsePicker}>
+            <ThoughtResponse>Because I </ThoughtResponse>
+            <Picker
+              style={styles.picker}
+              selectedValue={this.state.emotion}
+              onValueChange={(itemValue, itemIndex) =>
+                this.setState({ emotion: itemValue })
+              }
+            >
+              <Picker.Item label="Want" value="want" />
+              <Picker.Item label="Need" value="need" />
+              <Picker.Item label="Feel" value="feel" />
+            </Picker>
+            {this.state.emotion !== 'feel' && (
+              <ThoughtResponse> to</ThoughtResponse>
+            )}
+          </View>
+          <View>
+            <TextInput
+              style={styles.input}
+              placeholder={
+                this.state.emotion === 'feel'
+                  ? 'Complacent at work'
+                  : 'Make a difference at work'
+              }
+              onChangeText={text => this._validateInput(text)}
+              value={this.state.text}
+            />
+            {this.state.error.length > 0 && (
+              <ErrorMessage>{this.state.error}</ErrorMessage>
+            )}
+            <Button onPress={this._navigateAnswer2}>Continue</Button>
+          </View>
         </View>
-        <View>
-          <TextInput
-            style={styles.input}
-            placeholder={
-              this.state.emotion === 'feel'
-                ? 'Complacent at work'
-                : 'Make a difference at work'
-            }
-            onChangeText={text => this._validateInput(text)}
-            value={this.state.text}
-          />
-          {this.state.error.length > 0 && (
-            <ErrorMessage>{this.state.error}</ErrorMessage>
-          )}
-          <Button onPress={this._navigateAnswer2}>Continue</Button>
-        </View>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -95,6 +103,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  subcontainer: {
     alignItems: 'center',
     justifyContent: 'center'
   },

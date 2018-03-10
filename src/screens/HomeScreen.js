@@ -12,10 +12,10 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
+        {/* <Image
           style={styles.logo}
           source={require('../assets/icons/shocker-icon.png')}
-        />
+        /> */}
         <View style={styles.buttonContainer}>
           <Button
             onPress={() => this.props.navigation.navigate('ThoughtScreen1')}
