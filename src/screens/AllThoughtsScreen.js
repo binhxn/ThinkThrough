@@ -9,7 +9,13 @@ class AllThoughtsScreen extends Component {
     HeaderStyles('All Thoughts', 'Thoughts', null);
 
   _renderItem = ({ item }) => {
-    return <Text style={styles.thought}>{item}</Text>;
+    return (
+      <View>
+        <Text style={styles.thought}>{item}</Text>
+        {/* <Text>{savedDates}</Text> */}
+      </View>
+    );
+    // return <Text style={styles.thought}>{item}</Text>;
   };
 
   _renderSeparator = () => {
@@ -27,10 +33,13 @@ class AllThoughtsScreen extends Component {
       );
     }
 
+    console.log(this.props);
+
     return (
       <View style={styles.container}>
         <FlatList
           data={this.props.thoughts}
+          extraData={this.props.savedDates}
           renderItem={this._renderItem}
           keyExtractor={this._keyExtractor}
           ItemSeparatorComponent={this._renderSeparator}
@@ -61,9 +70,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  const { thoughts } = state.thoughts;
+  const { thoughts, savedDates } = state.thoughts;
 
-  return { thoughts };
+  return { thoughts, savedDates };
 };
 
 export default connect(mapStateToProps)(AllThoughtsScreen);

@@ -5,34 +5,35 @@ import {
   UPDATE_ANSWER_4,
   UPDATE_EMOTION,
   CONCAT_THOUGHT,
-  ADD_THOUGHT
+  ADD_THOUGHT,
+  SAVE_DATE
 } from './types';
 
 export const updateAnswer1 = answer1 => {
   return {
     type: UPDATE_ANSWER_1,
-    answer1: answer1.toLowerCase()
+    answer1: answer1.toLowerCase().trim()
   };
 };
 
 export const updateAnswer2 = answer2 => {
   return {
     type: UPDATE_ANSWER_2,
-    answer2: answer2.toLowerCase()
+    answer2: answer2.toLowerCase().trim()
   };
 };
 
 export const updateAnswer3 = answer3 => {
   return {
     type: UPDATE_ANSWER_3,
-    answer3: answer3.toLowerCase()
+    answer3: answer3.toLowerCase().trim()
   };
 };
 
 export const updateAnswer4 = answer4 => {
   return {
     type: UPDATE_ANSWER_4,
-    answer4: answer4.toLowerCase()
+    answer4: answer4.toLowerCase().trim()
   };
 };
 
@@ -54,5 +55,28 @@ export const addThought = thought => {
   return {
     type: ADD_THOUGHT,
     thought
+  };
+};
+
+export const saveDate = () => {
+  const dateObj = new Date();
+  const month = dateObj.getUTCMonth() + 1; //months from 1-12
+  const day = dateObj.getUTCDate();
+  const year = dateObj.getUTCFullYear();
+  let hours = dateObj.getHours();
+  const minutes = dateObj.getMinutes();
+  let period = 'AM';
+
+  if (hours > 12) {
+    hours = hours - 12;
+    period = 'PM';
+  }
+
+  // savedDate = `${day}/${month}/${year}`;
+  savedDate = `${hours}:${minutes} ${period}`;
+
+  return {
+    type: SAVE_DATE,
+    savedDate
   };
 };
