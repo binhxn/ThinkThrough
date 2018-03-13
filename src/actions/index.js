@@ -5,8 +5,7 @@ import {
   UPDATE_ANSWER_4,
   UPDATE_EMOTION,
   CONCAT_THOUGHT,
-  ADD_THOUGHT,
-  SAVE_DATE
+  ADD_THOUGHT
 } from './types';
 
 export const updateAnswer1 = answer1 => {
@@ -51,20 +50,14 @@ export const concatThought = thought => {
   };
 };
 
+// REFACTOR LATER
 export const addThought = thought => {
-  return {
-    type: ADD_THOUGHT,
-    thought
-  };
-};
-
-export const saveDate = () => {
   const dateObj = new Date();
   const month = dateObj.getUTCMonth() + 1; //months from 1-12
   const day = dateObj.getUTCDate();
   const year = dateObj.getUTCFullYear();
   let hours = dateObj.getHours();
-  const minutes = dateObj.getMinutes();
+  let minutes = dateObj.getMinutes();
   let period = 'AM';
 
   if (hours > 12) {
@@ -72,11 +65,16 @@ export const saveDate = () => {
     period = 'PM';
   }
 
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
   // savedDate = `${day}/${month}/${year}`;
-  savedDate = `${hours}:${minutes} ${period}`;
+  date = `${hours}:${minutes} ${period}`;
 
   return {
-    type: SAVE_DATE,
-    savedDate
+    type: ADD_THOUGHT,
+    thought,
+    date
   };
 };

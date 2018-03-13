@@ -10,7 +10,7 @@ import {
   ThoughtResponse
 } from '../components';
 import FinalThoughts from '../components/FinalThoughts';
-import { addThought, saveDate } from '../actions';
+import { addThought } from '../actions';
 
 class ThoughtScreen4 extends Component {
   static navigationOptions = () => HeaderStyles('Final Thoughts', 'Home', null);
@@ -25,7 +25,7 @@ class ThoughtScreen4 extends Component {
   };
 
   _storeFinalThought = () => {
-    this.props.saveDate();
+    // this.props.saveDate();
     this.props.addThought(this.props.finalThoughts);
     this._resetNavigation('Home'); // Reset stackNav to Home
     this.props.navigation.navigate('Thoughts'); // Navigates to Thoughts Tab
@@ -88,6 +88,4 @@ const mapStateToProps = state => {
   return { answer1, answer2, answer3, emotion, finalThoughts };
 };
 
-export default connect(mapStateToProps, { addThought, saveDate })(
-  ThoughtScreen4
-);
+export default connect(mapStateToProps, { addThought })(ThoughtScreen4);

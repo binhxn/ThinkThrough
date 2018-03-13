@@ -11,11 +11,10 @@ class AllThoughtsScreen extends Component {
   _renderItem = ({ item }) => {
     return (
       <View>
-        <Text style={styles.thought}>{item}</Text>
-        {/* <Text>{savedDates}</Text> */}
+        <Text style={styles.thought}>{item.thought}</Text>
+        <Text>{item.date}</Text>
       </View>
     );
-    // return <Text style={styles.thought}>{item}</Text>;
   };
 
   _renderSeparator = () => {
@@ -32,7 +31,6 @@ class AllThoughtsScreen extends Component {
         </View>
       );
     }
-
     console.log(this.props);
 
     return (
@@ -70,9 +68,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  const { thoughts, savedDates } = state.thoughts;
+  const { thoughts } = state.thoughts;
 
-  return { thoughts, savedDates };
+  return { thoughts };
 };
 
 export default connect(mapStateToProps)(AllThoughtsScreen);

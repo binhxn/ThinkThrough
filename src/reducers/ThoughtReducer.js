@@ -5,8 +5,7 @@ import {
   UPDATE_ANSWER_4,
   UPDATE_EMOTION,
   CONCAT_THOUGHT,
-  ADD_THOUGHT,
-  SAVE_DATE
+  ADD_THOUGHT
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -17,8 +16,7 @@ const INITIAL_STATE = {
   answer2: '',
   answer3: '',
   answer4: '',
-  answer5: '',
-  savedDates: []
+  answer5: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -42,10 +40,14 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, finalThoughts: action.thought };
 
     case ADD_THOUGHT:
-      return { ...state, thoughts: [...state.thoughts, action.thought] };
-
-    case SAVE_DATE:
-      return { ...state, savedDates: [...state.savedDates, action.savedDate] };
+      return {
+        ...state,
+        // Pushes object to array immutably
+        thoughts: state.thoughts.concat({
+          thought: action.thought,
+          date: action.date
+        })
+      };
 
     default:
       return state;
